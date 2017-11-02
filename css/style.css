@@ -40,6 +40,10 @@ body
 /* the nav bar */
 nav
 {
+	position: relative;
+	width: 100%;
+	left: 50%;
+	margin-left: -25%;
 	letter-spacing: 5px;
 }
 
@@ -50,16 +54,17 @@ nav ul
 
 nav ul li
 {
-	margin-bottom: 20px;
+	display: inline;
+	margin-right: 50px;
 	font-size: 20px;
 	transition: .5s;
 }
 
 nav ul li:hover
 {
-	margin-left: 10px;
 	cursor: pointer;
 	color: gold;
 	text-shadow: 0px 0px 1px black;
+	text-decoration: underline;
 }
 /* the nav bar */
