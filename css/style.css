@@ -8,16 +8,16 @@ body
 {
 	position : fixed;
 	width: 100%;
-	padding:20px;
+	padding: 20px 0px 20px 0px;
 	background-color: black;
 }
 
 .searchBar form input
 {
 	position: relative;
+	width: 75%;
 	left: 50%;
-	width: 750px;
-	margin-left: -375px;
+	margin-left: -37.5%;
 	padding: 5px 15px 5px 15px;
 	
 	background-color: rgba(255,255,255,0.9);
@@ -31,8 +31,9 @@ body
 
 .searchBar form input:hover
 {
-	margin-left: -500px;
-	width: 1000px;
+	width: 100%;
+	left: 0%;
+	margin-left: 0%;
 	background-color: rgba(255,255,255, 1);
 }
 /* search bar */
@@ -40,11 +41,8 @@ body
 /* the nav bar */
 nav
 {
-	position: relative;
-	width: 100%;
-	left: 50%;
-	margin-left: -25%;
 	letter-spacing: 5px;
+	text-align: center;
 }
 
 nav ul
