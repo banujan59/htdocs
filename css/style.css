@@ -83,3 +83,22 @@ nav ul li a:hover
 	transform: translateZ(50px);
 }
 /* the nav bar */
+
+/* Other */
+.plusplusHeader, .plusplusSubHeader
+{
+	font-family: 'Satisfy', cursive;
+	letter-spacing: 5px;
+}
+
+.plusplusHeader
+{
+	text-decoration: underline;
+}
+
+.plusplusText
+{
+	font-size: 30px;
+	font-family: 'Josefin Slab', serif;
+}
+/* Other */

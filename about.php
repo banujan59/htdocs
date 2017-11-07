@@ -48,8 +48,8 @@
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
-					<h1 class="funkyText">About Us</h1>
-					<p class="aboutText">
+					<h1 class="plusplusHeader">About Us</h1>
+					<p class="plusplusText">
 						<span style="font-size:45px;">S</span>hoe++ is an online store that sells shoes and 
 						accessories for shoes coming from all around the world. Like the name implies, we expect 
 						to offer more than just a normal shoe store. We target clients from all ages and from 
