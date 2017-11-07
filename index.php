@@ -13,6 +13,9 @@
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet"/>
 		<link href="https://fonts.googleapis.com/css?family=Yantramanav" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+		
+		<!-- Scripts -->
+		<script src="js/jquery-1.10.2.min.js"></script>
 	</head>
 	
 	<body>
@@ -32,10 +35,10 @@
 			<div class="row">
 			<nav>
 				<ul>
-					<li>Login</li>
-					<li>Register</li>
-					<li>About Us</li>
-					<li>Contact Us</li>
+					<li><a href="login.php">Login</a></li>
+					<li><a href="register.php">Register</a></li>
+					<li><a href="about.php">About Us</a></li>
+					<li><a href="contact.php">Contact Us</a></li>
 				</ul>
 			</nav>
 			</div>
