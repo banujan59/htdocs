@@ -14,3 +14,15 @@
 {
 	color: gold;
 }
+
+.formFooter
+{
+	text-align: center;
+}
+
+/* inputs */
+button[type=submit]
+{	
+	width: 200px;
+}
+/* inputs */

@@ -71,11 +71,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group"> 
-								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn btn-default">Login</button>
-									<button id="registerButton" class="btn btn-default">Don't Have an Account?</button>
-								</div>
+							<div class="formFooter"> 
+								<button type="submit" class="btn btn-default">Login</button>
+									<br/><br/>
+								<a href="">Forgot Password?</a> | <a href="register.php">Don't have an account?</a>
 							</div>
 						</form>
 				</div> <!-- End col -->
