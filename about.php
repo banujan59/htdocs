@@ -56,13 +56,8 @@
 						any country.
 					</p>
 					<img src="images/shoes2.jpg"/>
-<<<<<<< HEAD
-					<p class="aboutText">
-						We have been offering our shoependous services around the world since 2007!
-=======
 					<p class="plusplusText">
-						Jeremya: Add more bullshit text to impress viewer. Use your english skills!
->>>>>>> 36ac3faa973cd9c7502ce13928cccbcbb4e303f7
+						We have been offering our shoependous services around the world since 2007!
 					</p>
 				</div> <!-- End col -->
 			</div> <!-- End row -->
