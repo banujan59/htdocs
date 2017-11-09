@@ -56,7 +56,7 @@
 						any country.
 					</p>
 					<img src="images/shoes2.jpg"/>
-					<p class="aboutText">
+					<p class="plusplusText">
 						Jeremya: Add more bullshit text to impress viewer. Use your english skills!
 					</p>
 				</div> <!-- End col -->
