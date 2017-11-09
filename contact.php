@@ -51,12 +51,12 @@
 					<h1 class="plusplusHeader">Contact Us</h1>
 					<p class="plusplusText">
 						<span style="font-size:45px;">S</span>hoe++ is an online store for the people. We understand
-						the need to stay close to our customers. That is why it is possible to contact us throught the
+						the need to stay close to our customers. That is why it is possible to contact us through the
 						following:
 					</p>
 					
 					<br/><br/>
-					<h2 class="plusplusSubHeader">Social Medias:</h2>
+					<h2 class="plusplusSubHeader">Social Media:</h2>
 					<div class="socialMedias">
 						<a target="_blank" href="http://www.facebook.com/"><img title="Facebook" src="images/fb.png"/></a>
 						<a target="_blank" href="http://www.twitter.com/"><img title="Twitter" src="images/twitter.png"/></a>

@@ -57,7 +57,7 @@
 					</p>
 					<img src="images/shoes2.jpg"/>
 					<p class="aboutText">
-						Jeremya: Add more bullshit text to impress viewer. Use your english skills!
+						We have been offering our shoependous services around the world since 2007!
 					</p>
 				</div> <!-- End col -->
 			</div> <!-- End row -->
