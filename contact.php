@@ -51,8 +51,8 @@
 					<h1 class="plusplusHeader">Contact Us</h1>
 					<p class="plusplusText">
 						<span style="font-size:45px;">S</span>hoe++ is an online store for the people. We understand
-						the need to stay close to our customers. That is why it is possible to contact us through the
-						following:
+						the need to stay close to our customers. That is why it is possible for you to contact us 
+						through the following:
 					</p>
 					
 					<br/><br/>
@@ -73,14 +73,14 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="email">Your Email:</label>
 								<div class="col-sm-10">
-									<input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+									<input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">Subject:</label>
 								<div class="col-sm-10"> 
-									<input type="text" name="subject" class="form-control" id="pwd" placeholder="Enter password">
+									<input type="text" name="subject" class="form-control" id="pwd" placeholder="Enter Password">
 								</div>
 							</div>
 							

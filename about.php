@@ -51,13 +51,13 @@
 					<h1 class="plusplusHeader">About Us</h1>
 					<p class="plusplusText">
 						<span style="font-size:45px;">S</span>hoe++ is an online store that sells shoes and 
-						accessories for shoes coming from all around the world. Like the name implies, we expect 
-						to offer more than just a normal shoe store. We target clients from all ages and from 
-						any country.
+						shoe accessories originating from many different places all around the world. Like 
+						the name implies, we expect to offer more than just a normal shoe store. We target 
+						clients from all ages and from any country.
 					</p>
 					<img src="images/shoes2.jpg"/>
 					<p class="plusplusText">
-						We have been offering our shoependous services around the world since 2007!
+						We have been offering our shoependous services to the world since 2007!
 					</p>
 				</div> <!-- End col -->
 			</div> <!-- End row -->
