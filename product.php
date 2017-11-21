@@ -113,6 +113,16 @@
 								<td>⭐⭐⭐⭐⭐</td>
 								<td>This is the best product ever! My gf Veronique likes it.</td>
 							</tr>
+							<tr>
+								<td>Raymond</td>
+								<td>⭐⭐⭐</td>
+								<td>I ordered a size 7. Those were too large for me!</td>
+							</tr>
+							<tr>
+								<td>Banujan</td>
+								<td>⭐⭐⭐⭐⭐</td>
+								<td>These are the best shoes ever. If I could give more stars, I would. The seller was cool.</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
