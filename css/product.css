@@ -2,7 +2,7 @@
 {
 	position: absolute;
 	top: 50%;
-	margin-bottom: -37.5px;
+	margin-top: -37.5px;
 	
 	width: 75px;
 	height: 75px;
@@ -30,11 +30,13 @@
 #backButton
 {
 	left: 0%;
+	margin-left: 20px;
 }
 
 #nextButton
 {
 	right: 0%;
+	margin-right: 20px;
 }
 
 .photoBox

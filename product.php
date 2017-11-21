@@ -54,9 +54,26 @@
 			</div> <!-- End row -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="photoBox"><img width="100%;" src="images/1.jpg"/></div>
-					<div id="backButton" class="photoNavButton">&lt;</div>
-					<div id="nextButton" class="photoNavButton">&gt;</div>
+					<div class="photoBox">
+						<img width="100%;" src="images/1.jpg"/>
+						<div id="backButton" class="photoNavButton">&lt;</div>
+						<div id="nextButton" class="photoNavButton">&gt;</div>
+					</div>
+				</div>
+			</div> <!-- End row -->
+			<div class="row">
+				<br/><br/><br/>
+				<div class="col-md-3">
+					<header>
+						<h1>Order</h1>
+					</header>
+				</div>
+			</div> <!-- End row -->
+			<div class="row">
+				<div class="col-md-12">
+					<p class="plusplusText">
+						Enter Long ass description here.
+					</p>
 				</div>
 			</div> <!-- End row -->
 			<div class="row">
@@ -69,7 +86,7 @@
 			</div> <!-- End row -->
 			<div class="row">
 				<div class="col-md-12">
-					<p>
+					<p class="plusplusText">
 						Enter Long ass description here.
 					</p>
 				</div>
