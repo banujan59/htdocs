@@ -1,0 +1,50 @@
+.photoNavButton
+{
+	position: absolute;
+	top: 50%;
+	margin-bottom: -37.5px;
+	
+	width: 75px;
+	height: 75px;
+	padding-top: 15px;
+	border: solid 2px rgba(0,0,0,0.35);
+	border-radius: 37.5px;	
+	
+	text-align: center;
+	font-size: 30px;
+	color: rgba(0,0,0,0.35);
+	background-color: rgba(255,223,0, 0.35);
+	
+	transition: .5s;
+	cursor: pointer;
+	
+	user-select: none;
+}
+
+.photoNavButton:hover
+{
+	color: rgba(0,0,0,1);
+	background-color: rgba(255,223,0, 1);
+}
+
+#backButton
+{
+	left: 0%;
+}
+
+#nextButton
+{
+	right: 0%;
+}
+
+.photoBox
+{
+	position: relative;
+	width: 100%;
+}
+
+.photoBox img
+{
+	position: relative;
+	width: inherit;
+} 

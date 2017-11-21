@@ -10,6 +10,7 @@ body
 	width: 100%;
 	padding: 20px 0px 20px 0px;
 	background-color: black;
+	z-index: 999;
 }
 
 .topBar .logo
@@ -66,14 +67,38 @@ nav ul li
 	display: inline-block;
 	margin-right: 50px;
 	font-size: 20px;
-	cursor: pointer;
+}
+
+nav ul li a
+{
+	color: black;
 	transition: .5s;
 }
 
-nav ul li:hover
+nav ul li a:hover
 {
+	display: block;
 	color: gold;
 	text-shadow: 0px 0px 1px black;
 	transform: translateZ(50px);
 }
 /* the nav bar */
+
+/* Other */
+.plusplusHeader, .plusplusSubHeader
+{
+	font-family: 'Satisfy', cursive;
+	letter-spacing: 5px;
+}
+
+.plusplusHeader
+{
+	text-decoration: underline;
+}
+
+.plusplusText
+{
+	font-size: 30px;
+	font-family: 'Josefin Slab', serif;
+}
+/* Other */

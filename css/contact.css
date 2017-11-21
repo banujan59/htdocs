@@ -1,0 +1,11 @@
+.socialMedias
+{
+	text-align: center;
+}
+
+.socialMedias img
+{
+	width: 100px;
+	margin-right: 50px;
+	border-radius: 80px;
+}

@@ -1,0 +1,28 @@
+.formHeader
+{
+	text-align: center;
+	font-family: 'Satisfy', cursive;
+	margin-bottom: 25px;
+}
+
+.formHeader h1
+{
+	transition: .5s;
+}
+
+.formHeader  h1:hover
+{
+	color: gold;
+}
+
+.formFooter
+{
+	text-align: center;
+}
+
+/* inputs */
+button[type=submit]
+{	
+	width: 200px;
+}
+/* inputs */
