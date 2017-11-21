@@ -71,7 +71,7 @@
 			</div> <!-- End row -->
 			<div class="row">
 				<div class="col-md-12">
-					<button class="btn btn-success">Add to cart</button>
+					<button class="btn btn-success">🛒 ADD TO CART</button>
 				</div>
 			</div> <!-- End row -->
 			<div class="row">
@@ -110,7 +110,7 @@
 						<tbody>
 							<tr>
 								<td>Austin</td>
-								<td>5 stars</td>
+								<td>⭐⭐⭐⭐⭐</td>
 								<td>This is the best product ever!</td>
 							</tr>
 						</tbody>
