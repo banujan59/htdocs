@@ -111,7 +111,7 @@
 							<tr>
 								<td>Austin</td>
 								<td>⭐⭐⭐⭐⭐</td>
-								<td>This is the best product ever!</td>
+								<td>This is the best product ever! My gf Veronique likes it.</td>
 							</tr>
 						</tbody>
 					</table>
