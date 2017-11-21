@@ -71,9 +71,7 @@
 			</div> <!-- End row -->
 			<div class="row">
 				<div class="col-md-12">
-					<p class="plusplusText">
-						Enter Long ass description here.
-					</p>
+					<button class="btn btn-success">Add to cart</button>
 				</div>
 			</div> <!-- End row -->
 			<div class="row">
@@ -89,6 +87,34 @@
 					<p class="plusplusText">
 						Enter Long ass description here.
 					</p>
+				</div>
+			</div> <!-- End row -->
+			<div class="row">
+				<br/><br/><br/>
+				<div class="col-md-3">
+					<header>
+						<h1>Reviews</h1>
+					</header>
+				</div>
+			</div> <!-- End row -->
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>From</th>
+								<th>Rating</th>
+								<th>Review</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Austin</td>
+								<td>5 stars</td>
+								<td>This is the best product ever!</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div> <!-- End row -->
 			

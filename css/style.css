@@ -101,4 +101,10 @@ nav ul li a:hover
 	font-size: 30px;
 	font-family: 'Josefin Slab', serif;
 }
+
+table th, table td
+{
+	font-family: 'Josefin Slab', serif;
+	font-size: 20px;
+}
 /* Other */
