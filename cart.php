@@ -45,10 +45,27 @@
 			</nav>
 			</div>
 				<br/><br/><br/>
-			<div class="row">
+				<div class="row">
 				<div class="col-md-3">
 					<header>
 						<h1>My Cart</h1>
+					</header>
+				</div>
+			</div> <!-- End row -->
+			<div class="row">
+				<div class="col-md-12">
+					<p class="plusplusText">
+						Total : 0$
+					</p>
+					<button type="button" class="btn btn-danger">Clear Cart</button>
+					<button type="button" class="btn btn-success">Proceed to payment</button>
+				</div>
+			</div> <!-- End row -->
+			<br/><br/>
+			<div class="row">
+				<div class="col-md-3">
+					<header>
+						<h1>Content</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
