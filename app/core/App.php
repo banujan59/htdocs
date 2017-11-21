@@ -7,6 +7,8 @@ class App
 	protected $params = [];
 	protected $loginURL = '/SPPLogin';
 	protected $publicURL = ['SPPLogin','SPPLogin/signup'];
+	
+	
 
 	//TODO: integrate login rerouting in this location
 	public function __construct(){
