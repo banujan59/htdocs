@@ -13,7 +13,7 @@ class Model{
     {
 		//database parameters
 		$server = 'localhost';
-		$DBName = 'test';
+		$DBName = 'shoeplusplus';
 		$user = 'root';
 		$pass = '';
 		
