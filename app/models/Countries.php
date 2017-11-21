@@ -1,6 +1,6 @@
 <?php
 
-class Client extends Model{
+class Countries extends Model{
 	public $country_code;
 	public $country_name;
 	public $exchange_rate;

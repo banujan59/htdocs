@@ -5,8 +5,8 @@ class App
 	protected $controller = 'Login';
 	protected $method = 'index';
 	protected $params = [];
-	protected $loginURL = '/Login';
-	protected $publicURL = ['Login','Login/signup'];
+	protected $loginURL = '/SPPLogin';
+	protected $publicURL = ['SPPLogin','SPPLogin/signup'];
 
 	//TODO: integrate login rerouting in this location
 	public function __construct(){

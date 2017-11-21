@@ -1,11 +1,13 @@
 <?php
-
-	function signup(){
+class SPPLogin extends Controller{
+	
+	
+	
+	function index(){
 		$aClient = $this->model('Countries');
 		$myCountries = $aClient->get();
-		
-		$this->view('Login/register',['countries'=>$myCountries]);
+		$this->view('register',['countries'=>$myCountries]);
 
 	}
-
+}
 ?>

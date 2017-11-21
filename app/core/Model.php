@@ -1,7 +1,7 @@
 <?php
 
 class Model{
-	protected $_connection;
+	protected static $_connection;
     protected $_className = null;
     protected $_whereClause;
     protected $_orderBy;
@@ -17,10 +17,11 @@ class Model{
 		$user = 'root';
 		$pass = '';
 		
-        $this->_connection = $connection;
-        if ($this->_connection === null) {
-            $this->_connection = new PDO("mysql:host=$server;dbname=$DBName", $user, $pass);
-            $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        if (self::$_connection === null)
+			self::$_connection = $connection;
+        if (self::$_connection === null) {
+            self::$_connection = new PDO("mysql:host=$server;dbname=$DBName", $user, $pass);
+            self::$_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 		$this->_className = get_class($this);
     }
@@ -82,8 +83,7 @@ class Model{
 	//run select statements
     public function get(){
 		$select	= "SELECT * FROM $this->_className $this->_whereClause $this->_orderBy";
-
-        $stmt = $this->_connection->prepare($select);
+        $stmt = self::$_connection->prepare($select);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
         $returnVal = [];
