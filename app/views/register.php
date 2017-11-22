@@ -101,7 +101,7 @@
 							
 							<div class="form-group"> 
 								<div class="col-sm-offset-2 col-sm-10">
-									<button id="registerUserButton" type="submit" class="btn btn-default" onClick="register()">Register</button>
+									<button id="registerUserButton" type="submit" class="btn btn-default">Register</button>
 								</div>
 							</div>
 						</form>
@@ -119,9 +119,3 @@
 
 	</body>
 </html>
-<?php
-	function register()
-	{
-		
-	}
-?>
