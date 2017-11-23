@@ -7,7 +7,9 @@ class Home extends Controller{
 
 	public function register()
 	{
-		$this->view('Home/register');
+		$aClient = $this->model('Countries');
+		$myCountries = $aClient->get();
+		$this->view('Home/register', ['countries'=>$myCountries]);
 	}
 	
 	public function about()
@@ -19,9 +21,9 @@ class Home extends Controller{
 	{
 		$this->view('Home/contact');
 	}
-
 	
-	public function logout(){
+	public function logout()
+	{
 		LoginCore::logout();
 		header('location:/home/index');
 	}

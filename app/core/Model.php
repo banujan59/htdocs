@@ -18,8 +18,8 @@ class Model{
 		$pass = '';
 		
         if (self::$_connection === null)
-			self::$_connection = $connection;
         if (self::$_connection === null) {
+			self::$_connection = $connection;
             self::$_connection = new PDO("mysql:host=$server;dbname=$DBName", $user, $pass);
             self::$_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
