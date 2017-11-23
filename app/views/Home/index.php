@@ -3,11 +3,12 @@
 	<head>
 		<title>Shoe++ - Home</title>
 		<meta charset="utf-8"/>
-		<link rel="icon" href="images/logo.png">
+		<link rel="icon" href="../resources/images/logo.png">
 		
 		<!-- Style sheets -->
-		<link rel="stylesheet" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="../resources/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../resources/css/style.css"/>
+		<link rel="stylesheet" href="../resources/css/forms.css"/>
 		
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet"/>
@@ -15,7 +16,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 		
 		<!-- Scripts -->
-		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="../resources/js/jquery-1.10.2.min.js"></script>
 	</head>
 	
 	<body>
@@ -35,10 +36,10 @@
 			<div class="row">
 			<nav>
 				<ul>
-					<li><a href="login.php" name="action" value="Login">Login</a></li>
-					<li><a href="register.php">Register</a></li>
-					<li><a href="about.php">About Us</a></li>
-					<li><a href="contact.php">Contact Us</a></li>
+					<li><a href="/home/login" name="action" value="Login">Login</a></li>
+					<li><a href="/home/register">Register</a></li>
+					<li><a href="/home/about">About Us</a></li>
+					<li><a href="/home/contact">Contact Us</a></li>
 				</ul>
 			</nav>
 			</div>
@@ -47,7 +48,7 @@
 				<div class="col-md-3"></div>
 				<div class="col-md-8">
 					<div class="slideshow">
-						<a href="http://www.google.ca/"><image src="images/logo.png"/></a>
+						<a href="http://www.google.ca/"><image src="../resources/images/logo.png"/></a>
 					</div>
 				</div> <!-- End col -->
 			</div> <!-- End row -->

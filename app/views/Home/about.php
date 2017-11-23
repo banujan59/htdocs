@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Shoe++ - Login</title>
+		<title>Shoe++ - About Us</title>
 		<meta charset="utf-8"/>
-		<link rel="icon" href="images/logo.png">
+		<link rel="icon" href="../resources/images/logo.png">
 		
 		<!-- Style sheets -->
-		<link rel="stylesheet" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="css/style.css"/>
-		<link rel="stylesheet" href="css/about.css"/>
+		<link rel="stylesheet" href="../resources/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../resources/css/style.css"/>
+		<link rel="stylesheet" href="../resources/css/about.css"/>
 		
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet"/>
@@ -16,8 +16,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 		
 		<!-- Scripts -->
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/login.js"></script>
+		<script src="../resources/js/jquery-1.10.2.min.js"></script>
 	</head>
 	
 	<body>
@@ -37,10 +36,10 @@
 			<div class="row">
 			<nav>
 				<ul>
-					<li><a href="login.php">Login</a></li>
-					<li><a href="register.php">Register</a></li>
-					<li><a style="text-decoration:underline;" href="about.php">About Us</a></li>
-					<li><a href="contact.php">Contact Us</a></li>
+					<li><a href="/home/login" name="action" value="Login">Login</a></li>
+					<li><a href="/home/register">Register</a></li>
+					<li><a href="/home/about">About Us</a></li>
+					<li><a href="/home/contact">Contact Us</a></li>
 				</ul>
 			</nav>
 			</div>
@@ -55,7 +54,7 @@
 						the name implies, we expect to offer more than just a normal shoe store. We target 
 						clients from all ages and from any country.
 					</p>
-					<img src="images/shoes2.jpg"/>
+					<img src="../resources/images/shoes2.jpg"/>
 					<p class="plusplusText">
 						We have been offering our shoependous services to the world since 2007!
 					</p>

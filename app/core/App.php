@@ -5,18 +5,16 @@ class App
 	protected $controller = 'Login';
 	protected $method = 'index';
 	protected $params = [];
-	protected $loginURL = '/SPPLogin';
-	protected $publicURL = ['SPPLogin','SPPLogin/signup'];
-	
+	protected $loginURL = '/home';
+	protected $privateURL = [];
 	
 
 	//TODO: integrate login rerouting in this location
 	public function __construct(){
 		$url = $this->parseURL();
-
 		if(
 				!LoginCore::isLoggedIn()
-				&& !$this->isPublicURL()
+				&& $this->isPrivateURL()
 			){
 			header('location:'.$this->loginURL);
 			return;
@@ -37,7 +35,7 @@ class App
 			}
 		}
 		$this->params = $url ? array_values($url) : [];
-
+		
 		call_user_func_array([$this->controller, $this->method], $this->params);
 
 	}
@@ -48,11 +46,10 @@ class App
 		}
 	}
 
-	public function isPublicURL(){
+	public function isPrivateURL(){
 		$url = $_GET['url'];
-		return in_array ( $url , $this->publicURL);
+		return in_array ( $url , $this->privateURL);
 	}
-
 
 }
 
