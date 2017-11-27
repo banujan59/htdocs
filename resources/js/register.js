@@ -32,8 +32,7 @@ $(function()
 			
 			else
 			{
-				//window.alert("Error registering");
-				window.alert(serverMessage); // TODO take this line out
+				window.alert("Error registering");
 			}
 		});
 	});

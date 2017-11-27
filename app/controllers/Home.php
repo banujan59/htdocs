@@ -7,10 +7,23 @@ class Home extends Controller{
 	
 	public function login()
 	{
+		// if we have data form
 		if( isset($_POST["email"]) && isset($_POST["password"]))
 		{
-			loginCore::login($_POST["email"], $_POST["password"]);
+			// if login successful
+			if( loginCore::login($_POST["email"], $_POST["password"]) )
+			{
+				echo "login successful!";
+			}
+			
+			// if login failed
+			else
+			{
+				echo "login failed";
+			}
 		}
+		
+		// if we don't have data form
 		else
 		{
 			$this->view('Home/login');
