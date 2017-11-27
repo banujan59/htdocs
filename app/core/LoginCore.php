@@ -11,6 +11,9 @@ class LoginCore{
 			{
 				$_SESSION['email'] = $email;
 				$_SESSION['userID'] = $users[0]->ID;
+				$_SESSION["uname"] = $users[0]->UNAME;
+				$_SESSION["fname"] = $users[0]->FNAME;
+				$_SESSION["lname"] = $users[0]->LNAME;
 				return true;
 			}
 		}
@@ -23,9 +26,13 @@ class LoginCore{
 		return isset($_SESSION['uname']);
 	}
 	
-	public static function logout(){
-		unset($_SESSION['uname']);
+	public static function logout()
+	{
+		unset($_SESSION['email']);
 		unset($_SESSION['userID']);
+		unset($_SESSION["uname"]);
+		unset($_SESSION["fname"]);
+		unset($_SESSION["lname"]);
 	}
 }
 ?>

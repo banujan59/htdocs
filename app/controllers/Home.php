@@ -7,6 +7,12 @@ class Home extends Controller{
 	
 	public function login()
 	{
+		// a user who is logged in already, shouldn't access this page
+		if( isset($_SESSION["uname"]) && $_SESSION["uname"] != null)
+		{
+			header('location:/home/index');
+		}
+		
 		// if we have data form
 		if( isset($_POST["email"]) && isset($_POST["password"]))
 		{
@@ -28,10 +34,17 @@ class Home extends Controller{
 		{
 			$this->view('Home/login');
 		}
+		
 	}
 
 	public function register()
 	{
+		// a user who is logged in already, shouldn't access this page
+		if( isset($_SESSION["uname"]) && $_SESSION["uname"] != null)
+		{
+			header('location:/home/index');
+		}
+		
 		// check if we have form data
 		if( isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["uname"]) && isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["countryID"]))
 		{
