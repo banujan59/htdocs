@@ -17,9 +17,10 @@ class Model{
 		$user = 'root';
 		$pass = '';
 		
-        if (self::$_connection === null)
-        if (self::$_connection === null) {
+        if (self::$_connection == null)
 			self::$_connection = $connection;
+			
+        if (self::$_connection == null) {
             self::$_connection = new PDO("mysql:host=$server;dbname=$DBName", $user, $pass);
             self::$_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
@@ -51,7 +52,7 @@ class Model{
     {
 		$selectOne 	= "SELECT * FROM $this->_className WHERE $this->_PKName = :$this->_PKName";
 
-        $stmt = $this->_connection->prepare($selectOne);
+        $stmt = self::$_connection->prepare($selectOne);
         $stmt->execute(array($this->_PKName=>$ID));
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
@@ -63,7 +64,7 @@ class Model{
     // SELECT * FROM Client WHERE firstName = 'Jon' AND lastName = 'Doe'
     public function where($field, $op, $value){
         //TODO : only if this is a string-type value
-        $value = $this->_connection->quote($value);
+        $value = self::$_connection->quote($value);
         if($this->_whereClause == '')
             $this->_whereClause .= "WHERE $field $op $value";
         else
@@ -100,7 +101,7 @@ class Model{
 		if ($num  > 0){
 			$insert 	= 'INSERT INTO ' . $this->_className . '(' . implode(',', $properties) . ') VALUES (:'. implode(',:', $properties) . ')';
 		}
-        $stmt = $this->_connection->prepare($insert);
+        $stmt = self::$_connection->prepare($insert);
         $stmt->execute($this->toArray($properties));
 	}
 
@@ -118,13 +119,13 @@ class Model{
 			$update = 'UPDATE ' . $this->_className . ' SET ' . $setClause . " WHERE $this->_PKName = :$this->_PKName";
 		}
 
-        $stmt = $this->_connection->prepare($update);
+        $stmt = self::$_connection->prepare($update);
         $stmt->execute($this->toArray($properties));
 	}
 
 	public function delete(){
 		$delete = "DELETE FROM $this->_className WHERE $this->_PKName = :$this->_PKName";
-        $stmt = $this->_connection->prepare($delete);
+        $stmt = self::$_connection->prepare($delete);
         $stmt->execute(array($this->_PKName=>$this->{$this->_PKName}));
 	}
 }
