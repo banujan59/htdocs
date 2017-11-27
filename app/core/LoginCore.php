@@ -1,7 +1,7 @@
 <?php
 class LoginCore{
 	public static function login($username, $password){
-		$user = Controller::model('User');
+		$user = Controller::model('Users');
 		$users = $user->where('username','=',$username)->get();
 		
 		if(isset($users[0])){

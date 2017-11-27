@@ -25,9 +25,6 @@ $(function()
 		
 		$.post("/home/register", data, function(serverMessage)
 		{
-<<<<<<< HEAD
-			if
-=======
 			if(serverMessage == "user registed!")
 			{
 				window.alert("user registered");
@@ -38,7 +35,6 @@ $(function()
 				//window.alert("Error registering");
 				window.alert(serverMessage); // TODO take this line out
 			}
->>>>>>> Banu's-branch
 		});
 	});
 });
