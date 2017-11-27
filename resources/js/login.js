@@ -17,7 +17,21 @@ $(function()
 		
 		$.post("/home/login", data, function(serverMessage)
 		{
-			if
+			// if login is successful
+			if(serverMessage == "login successful!")
+			{
+				window.alert("Login successful! You will be redirected in a few seconds.");
+				setTimeout(function()
+				{
+					location = "/home/index";
+				}, 1000);
+			}
+			
+			// if login is failed
+			else
+			{
+				window.alert("login failed!");
+			}
 		});
 	});
 });
