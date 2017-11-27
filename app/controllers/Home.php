@@ -4,6 +4,11 @@ class Home extends Controller{
 	{
 		$this->view('Home/index');
 	}
+	
+	public function login()
+	{
+		$this->view('Home/login');
+	}
 
 	public function register()
 	{

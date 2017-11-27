@@ -6,9 +6,9 @@
 		<link rel="icon" href="images/logo.png">
 		
 		<!-- Style sheets -->
-		<link rel="stylesheet" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="css/style.css"/>
-		<link rel="stylesheet" href="css/forms.css"/>
+		<link rel="stylesheet" href="../resources/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../resources/css/style.css"/>
+		<link rel="stylesheet" href="../resources/css/forms.css"/>
 		
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet"/>
@@ -16,8 +16,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 		
 		<!-- Scripts -->
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/login.js"></script>
+		<script src="../resources/js/jquery-1.10.2.min.js"></script>
+		<script src="../resources/js/login.js"></script>
 	</head>
 	
 	<body>
