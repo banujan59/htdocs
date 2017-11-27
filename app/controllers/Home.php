@@ -7,14 +7,42 @@ class Home extends Controller{
 	
 	public function login()
 	{
-		$this->view('Home/login');
+		if( isset($_POST["email"]) && isset($_POST["password"]))
+		{
+			loginCore::login($_POST["email"], $_POST["password"]);
+		}
+		else
+		{
+			$this->view('Home/login');
+		}
 	}
 
 	public function register()
 	{
-		$aClient = $this->model('Countries');
-		$myCountries = $aClient->get();
-		$this->view('Home/register', ['countries'=>$myCountries]);
+		// check if we have form data
+		if( isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["uname"]) && isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["countryID"]))
+		{
+			// store variables
+			$email = $_POST["email"];
+			$password = $_POST["email"]; //Is this wrong, Banu?
+			$uname = $_POST["uname"];
+			$fname = $_POST["fname"];
+			$lname = $_POST["lname"];
+			$country = $_POST["country"];
+			
+			// hash the password
+			$password = password_hash( $password, PASSWORD_BCRYPT );
+			
+			echo $password;
+		}
+		
+		// if we don't have from data
+		else
+		{
+			$aClient = $this->model('Countries');
+			$myCountries = $aClient->get();
+			$this->view('Home/register', ['countries'=>$myCountries]);
+		}
 	}
 	
 	public function about()
