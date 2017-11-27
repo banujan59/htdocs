@@ -17,6 +17,7 @@
 		
 		<!-- Scripts -->
 		<script src="../resources/js/jquery-1.10.2.min.js"></script>
+		<script src="../resources/js/register.js"></script>
 	</head>
 	
 	<body>
@@ -86,7 +87,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">Country:</label>
 								<div class="col-sm-10"> 
-									<select class="form-control" id="countrySelection">
+									<select class="form-control" name="country" id="countrySelection">
 										<option>Select Your Country</option>
 										<?php
 											foreach ($data['countries'] as $country)
