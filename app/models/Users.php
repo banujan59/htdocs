@@ -2,7 +2,6 @@
 
 class Users extends Model
 {
-	public $ID;
 	public $EMAIL;
 	public $PASSWORD_HASH;
 	public $UNAME;
