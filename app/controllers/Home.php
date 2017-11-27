@@ -27,6 +27,11 @@ class Home extends Controller{
 		$this->view('Home/contact');
 	}
 	
+	public function product($id)
+	{
+		
+	}
+	
 	public function logout()
 	{
 		LoginCore::logout();
