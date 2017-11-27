@@ -22,6 +22,7 @@ class Home extends Controller{
 		// check if we have form data
 		if( isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["uname"]) && isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["countryID"]))
 		{
+<<<<<<< HEAD
 			// store variables
 			$email = $_POST["email"];
 			$password = $_POST["password"];
@@ -34,6 +35,24 @@ class Home extends Controller{
 			$password = password_hash( $password, PASSWORD_BCRYPT );
 			
 			echo $password;
+=======
+			// create model of user 
+			$user = $this->model('Users');
+			
+			// store variables
+			$user->setEmail( $_POST["email"] );
+			$user->setPasswordHash( password_hash( $_POST["password"], PASSWORD_BCRYPT ) );
+			$user->setUname( $_POST["uname"] );
+			$user->setFname( $_POST["fname"] );
+			$user->setLname( $_POST["lname"] );
+			$user->setCountryID( $_POST["countryID"] );
+			
+			// register user 
+			$user->insert();
+			
+			// echo success message
+			echo "user registed!";
+>>>>>>> Banu's-branch
 		}
 		
 		// if we don't have from data
