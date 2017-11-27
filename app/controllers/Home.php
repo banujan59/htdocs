@@ -24,7 +24,7 @@ class Home extends Controller{
 		{
 			// store variables
 			$email = $_POST["email"];
-			$password = $_POST["email"]; //Is this wrong, Banu?
+			$password = $_POST["password"];
 			$uname = $_POST["uname"];
 			$fname = $_POST["fname"];
 			$lname = $_POST["lname"];
