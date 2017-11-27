@@ -69,7 +69,7 @@
 								</div>
 							</div>
 							<div class="formFooter"> 
-								<button id="loginUserButton" type="submit" class="btn btn-default">Login</button>
+								<button id="loginUserButton" class="btn btn-default">Login</button>
 									<br/><br/>
 								<a href="">Forgot Password?</a> | <a href="register.php">Don't have an account?</a>
 							</div>

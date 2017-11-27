@@ -1,18 +1,22 @@
 <?php
 class LoginCore{
-	public static function login($email, $password){
+	public static function login($email, $password)
+	{
 		$user = Controller::model('Users');
 		$users = $user->where('email','=',$email)->get();
-		echo $email;
-		if(isset($users[0])){
-			if(password_verify($password, $users[0]->PASSWORD_HASH)){
+		
+		if(isset($users[0]))
+		{
+			if(password_verify($password, $users[0]->PASSWORD_HASH))
+			{
 				$_SESSION['email'] = $email;
 				$_SESSION['userID'] = $users[0]->ID;
-				$_SESSION['pwdt'] = $users[0]->PASSWORD_HASH;
-				echo $_SESSION['userID'];
+				return true;
 			}
-			echo $_SESSION['pwdt'];
 		}
+		
+		// if function reaches this point, the login has failed
+		return false;
 	}
 	
 	public static function isLoggedIn(){
