@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	// if the user is logged in...
-	if( isset($_SESSION["user"]) && $_SESSION["user"] != null)
+	if( isset($_SESSION["uname"]) && $_SESSION["uname"] != null)
 	{
 		?>
 			<p>TODO</p>
