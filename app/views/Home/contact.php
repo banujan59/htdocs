@@ -35,12 +35,10 @@
 		<div class="container">
 			<div class="row">
 			<nav>
-				<ul>
-					<li><a href="/home/login" name="action" value="Login">Login</a></li>
-					<li><a href="/home/register">Register</a></li>
-					<li><a href="/home/about">About Us</a></li>
-					<li><a href="/home/contact">Contact Us</a></li>
-				</ul>
+				<nav>
+				<script>
+					$("nav").load("../resources/navbar.php");
+				</script>
 			</nav>
 			</div>
 				<br/><br/><br/>

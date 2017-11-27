@@ -36,12 +36,9 @@
 		<div class="container">
 			<div class="row">
 			<nav>
-				<ul>
-					<li><a href="login.php">Login</a></li>
-					<li><a href="register.php">Register</a></li>
-					<li><a href="about.php">About Us</a></li>
-					<li><a href="contact.php">Contact Us</a></li>
-				</ul>
+				<script>
+					$("nav").load("../resources/navbar.php");
+				</script>
 			</nav>
 			</div>
 				<br/><br/><br/>

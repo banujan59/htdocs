@@ -1,8 +1,11 @@
 <?php 
+	session_start();
 	// if the user is logged in...
-	if($_SESSION["user"] != null)
+	if( isset($_SESSION["user"]) && $_SESSION["user"] != null)
 	{
-		
+		?>
+			<p>TODO</p>
+		<?php
 	}
 	
 	// if the user is not logged in
