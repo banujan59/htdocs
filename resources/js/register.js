@@ -25,7 +25,16 @@ $(function()
 		
 		$.post("/home/register", data, function(serverMessage)
 		{
-			if
+			if(serverMessage == "user registed!")
+			{
+				window.alert("user registered");
+			}
+			
+			else
+			{
+				//window.alert("Error registering");
+				window.alert(serverMessage); // TODO take this line out
+			}
 		});
 	});
 });

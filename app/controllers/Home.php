@@ -15,18 +15,22 @@ class Home extends Controller{
 		// check if we have form data
 		if( isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["uname"]) && isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["countryID"]))
 		{
+			// create model of user 
+			$user = $this->model('Users');
+			
 			// store variables
-			$email = $_POST["email"];
-			$password = $_POST["email"];
-			$uname = $_POST["uname"];
-			$fname = $_POST["fname"];
-			$lname = $_POST["lname"];
-			$country = $_POST["country"];
+			$user->setEmail( $_POST["email"] );
+			$user->setPasswordHash( password_hash( $_POST["password"], PASSWORD_BCRYPT ) );
+			$user->setUname( $_POST["uname"] );
+			$user->setFname( $_POST["fname"] );
+			$user->setLname( $_POST["lname"] );
+			$user->setCountryID( $_POST["countryID"] );
 			
-			// hash the password
-			$password = password_hash( $password, PASSWORD_BCRYPT );
+			// register user 
+			$user->insert();
 			
-			echo $password;
+			// echo success message
+			echo "user registed!";
 		}
 		
 		// if we don't have from data
