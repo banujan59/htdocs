@@ -1,6 +1,6 @@
 $(function()
 {
-	var images = ["images/1.jpg", "images/2.jpg", "images/3.jpg"];
+	var images = ["/resources/images/1.jpg", "/resources/images/2.jpg", "/resources/images/3.jpg"];
 	var currentImageIndex = 0;
 	
 	$(".photoNavButton").click(function(e)
