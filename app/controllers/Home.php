@@ -100,7 +100,11 @@ class Home extends Controller{
 	
 	public function product($id)
 	{
+		// if we don't have the item id
+		if(!isset($id))
+			header('location:/home/');
 		
+		$this->view('Home/product');
 	}
 	
 	public function logout()
