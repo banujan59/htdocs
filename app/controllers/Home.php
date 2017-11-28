@@ -97,6 +97,18 @@ class Home extends Controller{
 		
 		$this->view("Home/search", ["name" => $name, "items" => $queryResults] );
 	}
+		
+	public function userInfo()
+	{
+		$this->view('Home/userInfo');
+	}
+	
+	public function modify()
+	{
+		$aClient = $this->model('Countries');
+		$myCountries = $aClient->get();
+		$this->view('Home/modify', ['countries'=>$myCountries]);
+	}
 	
 	public function product($id)
 	{
