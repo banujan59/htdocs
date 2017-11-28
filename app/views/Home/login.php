@@ -66,7 +66,7 @@
 							<div class="formFooter"> 
 								<button id="loginUserButton" class="btn btn-default">Login</button>
 									<br/><br/>
-								<a href="">Forgot Password?</a> | <a href="register.php">Don't have an account?</a>
+								<a href="">Forgot Password?</a> | <a href="/home/register">Don't have an account?</a>
 								<br/><br/>
 								<span class="serverOutput" style="margin-top: 5px;">Server message goes here</span>
 							</div>

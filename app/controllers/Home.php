@@ -85,6 +85,11 @@ class Home extends Controller{
 		$this->view('Home/contact');
 	}
 	
+	public function search($name)
+	{
+		$this->view("Home/search");
+	}
+	
 	public function product($id)
 	{
 		
