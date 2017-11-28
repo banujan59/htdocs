@@ -63,7 +63,7 @@ class Home extends Controller{
 			$user->insert();
 			
 			// echo success message
-			echo "user registed!";
+			echo "user registered!";
 		}
 		
 		// if we don't have from data
@@ -83,6 +83,18 @@ class Home extends Controller{
 	public function contact()
 	{
 		$this->view('Home/contact');
+	}
+	
+	public function userInfo()
+	{
+		$this->view('Home/userInfo');
+	}
+	
+	public function modify()
+	{
+		$aClient = $this->model('Countries');
+		$myCountries = $aClient->get();
+		$this->view('Home/modify', ['countries'=>$myCountries]);
 	}
 	
 	public function product($id)

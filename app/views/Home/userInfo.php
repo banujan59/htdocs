@@ -48,66 +48,44 @@
 						<header class="formHeader">
 							<h1>Your Information</h1>
 						</header>
+						<!--Please make the SECOND control label of each group left-aligned (if that would make it look better).-->
 						<form method="post" class="form-horizontal">
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="email">Your Email:</label>
-								<div class="inputContainer col-sm-8">
-									<label class="control-label col-sm-2" for="email">test</label>
-								</div>
-								<a href="/home/logout">Update Email</a>
+								<label class="control-label col-sm-3" for="email">Your Email:</label>
+									<label class="control-label col-sm-4" for="email">sirsweatsalot@gmail.com</label>
+								<a class="control-label col-sm-4" href="/home/modify">Update Email</a>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Your Password:</label>
-								<div class="inputContainer col-sm-8"> 
-									<label class="control-label col-sm-2" for="pwd">****</label>
-								</div>
-								<a href="/home/logout">Change Password</a>
+								<label class="control-label col-sm-3" for="pwd">Your Password:</label>
+									<label class="control-label col-sm-4" for="pwd">************</label>
+								<a class="control-label col-sm-4" href="/home/modify">Change Password</a>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Your Username:</label>
-								<div class="inputContainer col-sm-8"> 
-									<label class="control-label col-sm-2" for="email">test</label>
-								</div>
-								<a href="/home/logout">Change Username</a>
+								<label class="control-label col-sm-3" for="pwd">Your Username:</label>
+									<label class="control-label col-sm-4" for="email">gobbs</label>
+								<a class="control-label col-sm-4" href="/home/modify">Change Username</a>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Your First Name:</label>
-								<div class="inputContainer col-sm-8"> 
-									<label class="control-label col-sm-2" for="email">test</label>
-								</div>
-								<a href="/home/logout">Update First Name</a>
+								<label class="control-label col-sm-3" for="pwd">Your First Name:</label>
+									<label class="control-label col-sm-4" for="email">Austin</label>
+								<a class="control-label col-sm-4" href="/home/modify">Update First Name</a>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Your Last Name:</label>
-								<div class="inputContainer col-sm-8"> 
-									<label class="control-label col-sm-2" for="email">test</label>
-								</div>
-								<a href="/home/logout">Update Last Name</a>
+								<label class="control-label col-sm-3" for="pwd">Your Last Name:</label>
+									<label class="control-label col-sm-4" for="email">Gobby</label>
+								<a class="control-label col-sm-4" href="/home/modify">Update Last Name</a>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="pwd">Your Country:</label>
-								<div class="inputContainer col-sm-8"> 
-									<label class="control-label col-sm-2" for="email">test</label>
-								</div>
-								<a href="/home/logout">Update Country</a>
+								<label class="control-label col-sm-3" for="pwd">Your Country:</label>
+									<label class="control-label col-sm-4" for="email">United States</label>
+								<a class="control-label col-sm-4" href="/home/modify">Update Country</a>
 							</div>
 							
-							<div class="form-group"> 
-								<div class="col-sm-offset-2 col-sm-10">
-									<button id="registerUserButton" type="submit" class="btn btn-default">Register</button>
-								</div>
-							</div>
-							
-							<div class="form-group"> 
-								<div class="col-sm-offset-2 col-sm-10">
-									<span class="serverOutput">Section reserved for server errors.</span>
-								</div>
-							</div>
 						</form>
 				</div> <!-- End col -->
 			</div> <!-- End row -->
