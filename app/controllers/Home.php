@@ -63,7 +63,7 @@ class Home extends Controller{
 			$user->insert();
 			
 			// echo success message
-			echo "user registed!";
+			echo "user registered!";
 		}
 		
 		// if we don't have from data
