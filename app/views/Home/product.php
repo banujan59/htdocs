@@ -47,9 +47,50 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="photoBox">
-						<img width="100%;" src="images/1.jpg"/>
+					<!--The 'src' has to be variant.-->
+						<img id="insertion" width="100%;" src="/resources/images/1.jpg"/>
 						<div id="backButton" class="photoNavButton">&lt;</div>
 						<div id="nextButton" class="photoNavButton">&gt;</div>
+						<script>
+						<!--So do the echos.-->
+						var images = ["<?php echo "/resources/images/1.jpg"?>", "<?php echo "/resources/images/2.jpg"?>", "<?php echo "/resources/images/3.jpg"?>"];
+						var currentImageIndex = 0;
+						"insertion" = currentImageIndex;
+						$(".photoNavButton").click(function(e)
+						{
+							var id = $(this).attr("id");
+							var src = "";
+							var xAxisMovementCode = "";
+							if(id == "backButton")
+							{
+								currentImageIndex--;
+								
+								if(currentImageIndex < 0)
+									currentImageIndex = images.length - 1;
+								
+								xAxisMovementCode = "-20px";
+							}
+							
+							else
+							{
+								currentImageIndex++;
+								if(currentImageIndex == images.length)
+									currentImageIndex = 0;
+								
+								xAxisMovementCode = "20px";
+							}
+							
+							
+							src = images[currentImageIndex];
+							
+							// apply animation
+							$(".photoBox img").animate({"left" : xAxisMovementCode}, 200, function()
+								{
+									$(this).attr("src", src);
+									$(this).animate({"left" : "0px"}, 200)
+								});
+						});
+						</script>
 					</div>
 				</div>
 			</div> <!-- End row -->
