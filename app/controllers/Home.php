@@ -69,8 +69,8 @@ class Home extends Controller{
 		// if we don't have from data
 		else
 		{
-			$aClient = $this->model('Countries');
-			$myCountries = $aClient->get();
+			$countries = $this->model('Countries');
+			$myCountries = $countries->get();
 			$this->view('Home/register', ['countries'=>$myCountries]);
 		}
 	}
@@ -87,7 +87,15 @@ class Home extends Controller{
 	
 	public function search($name)
 	{
-		$this->view("Home/search");
+		// if name is not set
+		if(!isset($name))
+			header('location:/home/');
+		
+		// search for items
+		$items = $this->model('Items');
+		$queryResults = $items->where('NAME', 'LIKE', '%' . $name . "%");
+		
+		$this->view("Home/search", ["name" => $name, "items" => $queryResults] );
 	}
 	
 	public function product($id)
@@ -98,7 +106,7 @@ class Home extends Controller{
 	public function logout()
 	{
 		LoginCore::logout();
-		header('location:/home/index');
+		header('location:/home/');
 	}
 }
 ?>

@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Shoe++ - Search Results</title>
+		<title>Shoe++ - Search Result</title>
 		<meta charset="utf-8"/>
-		<link rel="icon" href="../resources/images/logo.png">
+		<link rel="icon" href="/resources/images/logo.png">
 		
 		<!-- Style sheets -->
-		<link rel="stylesheet" href="../resources/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="../resources/css/style.css"/>
-		<link rel="stylesheet" href="../resources/css/forms.css"/>
+		<link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/resources/css/style.css"/>
+		<link rel="stylesheet" href="/resources/css/search.css"/>
 		
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet"/>
@@ -16,13 +16,14 @@
 		<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 		
 		<!-- Scripts -->
-		<script src="../resources/js/jquery-1.10.2.min.js"></script>
+		<script src="/resources/js/jquery-1.10.2.min.js"></script>
+		<script src="/resources/js/search.js"></script>
 	</head>
 	
 	<body>
 		<div class="topBar">
 			<script>
-				$(".topBar").load("../resources/topbar.php");
+				$(".topBar").load("/resources/topbar.php");
 			</script>
 		</div>
 			
@@ -31,19 +32,90 @@
 			<div class="row">
 			<nav>
 				<script>
-					$("nav").load("../resources/navbar.php");
+					$("nav").load("/resources/navbar.php");
 				</script>
 			</nav>
 			</div>
 				<br/><br/><br/>
 			<div class="row">
+				<div class="col-md-12">
+					<header>
+						<h1>Search Results for: '<?php echo $data['name'];?>'</h1>
+					</header>
+				</div> <!-- End col -->
+			</div> <!-- End row -->
+				<br/>
+				<hr/>
+			<div class="row">
 				<div class="col-md-3"></div>
-				<div class="col-md-8">
-					<div class="slideshow">
-						<a href="http://www.google.ca/"><image src="../resources/images/logo.png"/></a>
+				<div class="col-md-6">
+					<div class="resultBox" link="/home/product/5">
+						<div class="resultDescription">
+							<ul>
+								<li>Name: Golden shoes</li>
+								<li>Price: $0</li>
+							</ul>
+						</div>
+						<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
 					</div>
 				</div> <!-- End col -->
 			</div> <!-- End row -->
+			<hr/>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<div class="resultBox" link="/home/product/5">
+						<div class="resultDescription">
+							<ul>
+								<li>Name: Golden shoes</li>
+								<li>Price: $0</li>
+							</ul>
+						</div>
+						<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
+					</div>
+				</div> <!-- End col -->
+			</div> <!-- End row -->
+			<hr/>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<div class="resultBox" link="/home/product/5">
+						<div class="resultDescription">
+							<ul>
+								<li>Name: Golden shoes</li>
+								<li>Price: $0</li>
+							</ul>
+						</div>
+						<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
+					</div>
+				</div> <!-- End col -->
+			</div> <!-- End row -->
+			
+			<?php
+				foreach($data["items"] as $item)
+				{
+					if($item != null)
+					{
+					?>
+						<hr/>
+						<div class="row">
+							<div class="col-md-3"></div>
+							<div class="col-md-6">
+								<div class="resultBox" link="/home/product/<?php echo $item->ID;?>">
+									<div class="resultDescription">
+										<ul>
+											<li>Name: <?php echo $item->NAME;?></li>
+											<li>Price: $<?php echo $item->PRICE;?></li>
+										</ul>
+									</div>
+									<div class="preview" style="background-image:url('<?php echo $item->imageURL;?>');"></div>
+								</div>
+							</div> <!-- End col -->
+						</div> <!-- End row -->
+					<?php
+					}
+				}
+			?>
 			
 
 			<hr/>
