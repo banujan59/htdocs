@@ -8,8 +8,8 @@
 				<li><a href="/home/">Home</a></li>
 				<li><a href="/home/about">About Us</a></li>
 				<li><a href="/home/contact">Contact Us</a></li>
-				<li><a href="/home/logout">Logout</a></li>
 				<li><a href="/home/userInfo">My Account</a></li>
+				<li><a href="/home/logout">Logout</a></li>
 			</ul>
 		<?php
 	}

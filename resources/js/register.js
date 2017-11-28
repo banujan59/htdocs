@@ -88,7 +88,7 @@ $(function()
 		
 			$.post("/home/register", data, function(serverMessage)
 			{
-				if(serverMessage == "user registed!")
+				if(serverMessage == "user registered!")
 				{
 					$(".serverOutput").text("User registered! You will be redirected to the login page.");
 					$(".serverOutput").css("color", "green");

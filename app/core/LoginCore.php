@@ -9,11 +9,24 @@ class LoginCore{
 		{
 			if(password_verify($password, $users[0]->PASSWORD_HASH))
 			{
+				// set the session variables
 				$_SESSION['email'] = $email;
 				$_SESSION['userID'] = $users[0]->ID;
 				$_SESSION["uname"] = $users[0]->UNAME;
 				$_SESSION["fname"] = $users[0]->FNAME;
 				$_SESSION["lname"] = $users[0]->LNAME;
+				
+				// get user country info
+				$country = Controller::model('Countries');
+				$countryQuery = $country->where('ID', '=', $users[0]->COUNTRY_ID)->get();
+				
+				if(isset($countryQuery[0]))
+				{
+					$_SESSION["COUNTRY_NAME"] = $countryQuery[0]->COUNTRY_NAME;
+					$_SESSION["EXCHANGE_RATE"] = $countryQuery[0]->EXCHANGE_RATE;
+					$_SESSION["COUNTRY_CODE"] = $countryQuery[0]->COUNTRY_CODE;
+				}
+				
 				return true;
 			}
 		}

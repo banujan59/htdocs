@@ -100,6 +100,12 @@ class Home extends Controller{
 		
 	public function userInfo()
 	{
+		// a user who is logged in already, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
 		$this->view('Home/userInfo');
 	}
 	
