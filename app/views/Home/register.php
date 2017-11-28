@@ -51,42 +51,55 @@
 						<form method="post" class="form-horizontal">
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="email">Email:</label>
-								<div class="col-sm-10">
+								<div class="inputContainer col-sm-8">
 									<input type="email" name="email" class="form-control" placeholder="Enter Email">
 								</div>
+								<span id="emailErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">Password:</label>
-								<div class="col-sm-10"> 
+								<div class="inputContainer col-sm-8"> 
 									<input type="password" name="password" class="form-control" placeholder="Enter Password">
 								</div>
+								<span id="passwordErrorMessage" class="control-label col-sm-2 errorMessage"></span>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="pwd">Confirm:</label>
+								<div class="inputContainer col-sm-8"> 
+									<input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password">
+								</div>
+								<span id="confirmPasswordErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">Username:</label>
-								<div class="col-sm-10"> 
+								<div class="inputContainer col-sm-8"> 
 									<input type="text" name="uname" class="form-control" placeholder="Enter Username">
 								</div>
+								<span id="unameErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">First Name:</label>
-								<div class="col-sm-10"> 
+								<div class="inputContainer col-sm-8"> 
 									<input type="text" name="fname" class="form-control" placeholder="Enter Your First Name">
 								</div>
+								<span id="fnameErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">Last Name:</label>
-								<div class="col-sm-10"> 
+								<div class="inputContainer col-sm-8"> 
 									<input type="text" name="lname" class="form-control" placeholder="Enter Your Last Name">
 								</div>
+								<span id="lnameErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pwd">Country:</label>
-								<div class="col-sm-10"> 
+								<div class="inputContainer col-sm-8"> 
 									<select class="form-control" name="country">
 										<option>Select Your Country</option>
 										<?php
@@ -95,11 +108,18 @@
 										?>
 									</select>
 								</div>
+								<span id="countryErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
 							<div class="form-group"> 
 								<div class="col-sm-offset-2 col-sm-10">
 									<button id="registerUserButton" type="submit" class="btn btn-default">Register</button>
+								</div>
+							</div>
+							
+							<div class="form-group"> 
+								<div class="col-sm-offset-2 col-sm-10">
+									<span class="serverOutput">Section reserved for server errors.</span>
 								</div>
 							</div>
 						</form>

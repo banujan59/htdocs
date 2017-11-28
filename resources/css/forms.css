@@ -20,6 +20,27 @@
 	text-align: center;
 }
 
+.errorMessage, .serverOutput
+{
+	font-weight: bold;
+	font-size: 16px;
+	font-family: 'Josefin Slab', serif;
+	opacity: 0;
+}
+
+.errorMessage
+{
+	color: red;
+	display:none;
+	text-align: left !important;
+}
+
+/* for the transitions */
+.inputContainer
+{
+	transition: .5s;
+}
+
 /* inputs */
 button[type=submit]
 {	
