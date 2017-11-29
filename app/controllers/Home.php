@@ -207,6 +207,34 @@ class Home extends Controller{
 		}
 	}
 	
+	public function myItemsForSale()
+	{
+		// a user who is not logged in, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
+		// if we have data form
+		if( isset($_POST["itemIDToDelete"]) )
+		{
+			$item = $this->model("Items");
+			$item->ID = $_POST["itemIDToDelete"];
+			$item->delete();
+			
+			echo "item deleted!";
+		}
+		
+		else // if we don't have form data
+		{
+			// retrieve items on sale
+			$items = $this->model('Items');
+			$queryResults = $items->where('SELLER_ID', '=', $_SESSION["userID"])->get();
+		
+			$this->view("Home/myItemsForSale", ["items" => $queryResults] );
+		}
+	}
+	
 	public function cart()
 	{
 		// a user who is not logged in, shouldn't access this page
