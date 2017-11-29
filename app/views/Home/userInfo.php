@@ -84,6 +84,8 @@
 								<div class="col-md-1"></div>
 								<div class="col-md-4">
 									<button id="updateProfileButton" type="button" class="btn btn-warning" onClick="location='/home/modify';">Update Profile</button>
+										<br/><br/>
+									<button id="sellItemButton" type="button" class="btn btn-warning" onClick="location='/home/sellItem';">Sell an item</button>
 								</div>
 							</div>
 							

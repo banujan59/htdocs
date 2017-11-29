@@ -93,7 +93,7 @@ class Home extends Controller{
 		
 		// search for items
 		$items = $this->model('Items');
-		$queryResults = $items->where('NAME', 'LIKE', '%' . $name . "%");
+		$queryResults = $items->where('NAME', 'LIKE', '%' . $name . "%")->get();
 		
 		$this->view("Home/search", ["name" => $name, "items" => $queryResults] );
 	}
@@ -171,6 +171,40 @@ class Home extends Controller{
 	{
 		LoginCore::logout();
 		header('location:/home/');
+	}
+	
+	// selling an item
+	public function sellItem()
+	{
+		// a user who is not logged in, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
+		// check for form data
+		if( isset($_POST["name"]) && isset($_POST["description"]) && isset($_POST["price"]) && isset($_POST["images"]) )
+		{
+			// create class of type item 
+			$item = $this->model("Items");
+			
+			// set attributes
+			$item->setSellerID( $_SESSION["userID"] );
+			$item->setName( $_POST["name"] );
+			$item->setDescription( $_POST["description"] );
+			$item->setPrice( $_POST["price"] );
+			$item->setImageURL( $_POST["images"] );
+			
+			// insert
+			$item->insert();
+			
+			echo "item saved!";
+		}
+		
+		else // if we have no form data
+		{
+			$this->view("Home/sell_item");
+		}
 	}
 }
 ?>

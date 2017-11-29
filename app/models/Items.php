@@ -2,6 +2,7 @@
 
 class Items extends Model
 {
+	public $ID;
 	public $SELLER_ID;
 	public $NAME;
 	public $DESCRIPTION;
