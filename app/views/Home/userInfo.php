@@ -86,6 +86,8 @@
 									<button id="updateProfileButton" type="button" class="btn btn-warning" onClick="location='/home/modify';">Update Profile</button>
 										<br/><br/>
 									<button id="sellItemButton" type="button" class="btn btn-warning" onClick="location='/home/sellItem';">Sell an item</button>
+									<br/><br/>
+									<button id="viewCart" type="button" class="btn btn-warning" onClick="location='/home/cart';">View My Cart</button>
 								</div>
 							</div>
 							

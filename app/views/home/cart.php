@@ -3,12 +3,12 @@
 	<head>
 		<title>Shoe++ - Home</title>
 		<meta charset="utf-8"/>
-		<link rel="icon" href="images/logo.png">
+		<link rel="icon" href="/resources/images/logo.png">
 		
 		<!-- Style sheets -->
-		<link rel="stylesheet" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="css/style.css"/>
-		<link rel="stylesheet" href="css/product.css"/>
+		<link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/resources/css/style.css"/>
+		<link rel="stylesheet" href="/resources/css/product.css"/>
 		
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet"/>
@@ -16,14 +16,14 @@
 		<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 		
 		<!-- Scripts -->
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/product.js"></script>
+		<script src="/resources/js/jquery-1.10.2.min.js"></script>
+		<script src="/resources/js/product.js"></script>
 	</head>
 	
 	<body>
 		<div class="topBar">
 			<script>
-				$(".topBar").load("../resources/topbar.php");
+				$(".topBar").load("/resources/topbar.php");
 			</script>
 		</div>
 			
@@ -32,7 +32,7 @@
 			<div class="row">
 			<nav>
 				<script>
-					$("nav").load("../resources/navbar.php");
+					$("nav").load("/resources/navbar.php");
 				</script>
 			</nav>
 			</div>
@@ -74,7 +74,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><a href="">Shoe 1</a></td>
+								<td><a href="/resources/">Shoe 1</a></td>
 								<td>Austin from Austin, Texas</td>
 								<td>999.99$</td>
 								<td>

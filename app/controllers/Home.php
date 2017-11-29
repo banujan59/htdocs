@@ -206,5 +206,19 @@ class Home extends Controller{
 			$this->view("Home/sell_item");
 		}
 	}
+	
+	public function cart()
+	{
+		// a user who is not logged in, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
+		// retrieve cart items
+		// TODO
+		
+		$this->view("Home/cart");
+	}
 }
 ?>
