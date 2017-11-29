@@ -57,7 +57,7 @@
 							
 							<div class="form-group">
 								<label class="control-label col-sm-3" for="pwd">Your Password:</label>
-									<label class="userInfo control-label col-sm-4">************</label>
+									<label class="userInfo control-label col-sm-4"><a href="/home/changePassword/">Change Password</a></label>
 							</div>
 							
 							<div class="form-group">

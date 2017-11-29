@@ -2,6 +2,7 @@
 
 class Users extends Model
 {
+	public $ID;
 	public $EMAIL;
 	public $PASSWORD_HASH;
 	public $UNAME;
@@ -14,6 +15,11 @@ class Users extends Model
 	}
 	
 	// mutator methods
+	public function setID($value)
+	{
+		$this->ID = $value;
+	}
+	
 	public function setEmail($value)
 	{
 		$this->EMAIL = $value;

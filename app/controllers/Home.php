@@ -100,7 +100,7 @@ class Home extends Controller{
 		
 	public function userInfo()
 	{
-		// a user who is logged in already, shouldn't access this page
+		// a user who is not logged in, shouldn't access this page
 		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
 		{
 			header('location:/home/index');
@@ -109,8 +109,50 @@ class Home extends Controller{
 		$this->view('Home/userInfo');
 	}
 	
+	public function changePassword()
+	{
+		// a user who is not logged in, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
+		// if we have form data
+		if( isset($_POST["oldPwd"]) && isset($_POST["newPwd"]) )
+		{
+			$user = Controller::model('Users');
+			$users = $user->where('email','=',$_SESSION["email"])->get();
+			
+			if( isset($users[0]) )
+			{
+				if(password_verify($_POST["oldPwd"], $users[0]->PASSWORD_HASH))
+				{
+					$user = Controller::model('Users');
+					$user->setID( $_SESSION["userID"] );
+					$user->setPasswordHash( password_hash( $_POST["newPwd"], PASSWORD_BCRYPT ) );
+					$user->update();
+					echo "success";
+				}
+				
+				else
+				{
+					echo "current pwd invalid";
+				}
+			}
+		}
+		
+		else // if we don't have form data
+			$this->view('Home/changePassword');
+	}
+	
 	public function modify()
 	{
+		// a user who is not logged in, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
 		$aClient = $this->model('Countries');
 		$myCountries = $aClient->get();
 		$this->view('Home/modify', ['countries'=>$myCountries]);
