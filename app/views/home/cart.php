@@ -73,14 +73,21 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td><a href="/resources/">Shoe 1</a></td>
-								<td>Austin from Austin, Texas</td>
-								<td>999.99$</td>
-								<td>
-									<button type="button" class="btn btn-danger">Remove From Cart</button>
-								</td>
-							</tr>
+							<?php
+								foreach($data["items"] as $item)
+								{
+									?>
+									<tr>
+										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->NAME;?> </a></td>
+										<td><?php echo $item->SELLER_ID;?></td>
+										<td><?php echo $item->PRICE;?></td>
+										<td>
+											<button id="removeFromCartButton" itemID="<?php echo $item->ID;?>" type="button" class="btn btn-danger">Remove From Cart</button>
+										</td>
+									</tr>
+									<?php
+								}
+							?>
 						</tbody>
 					</table>
 				</div>

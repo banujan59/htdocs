@@ -222,7 +222,7 @@ class Home extends Controller{
 			$item->ID = $_POST["itemIDToDelete"];
 			$item->delete();
 			
-			echo "item deleted!";
+			echo "Item deleted!";
 		}
 		
 		else // if we don't have form data
@@ -244,9 +244,12 @@ class Home extends Controller{
 		}
 		
 		// retrieve cart items
-		// TODO
+		// We need join cause for the below. Temporarily replaced with myItemsForSale logic.
+		$orders = $this->model('Orders');
+		$queryResults = $orders->where('USER_ID', '=', $_SESSION["userID"])->where('STATUS', '=', 'like "Open"')->get();
 		
-		$this->view("Home/cart");
+		$this->view("Home/cart", ["items" => $queryResults] );
+		//$this->view("Home/cart");
 	}
 }
 ?>
