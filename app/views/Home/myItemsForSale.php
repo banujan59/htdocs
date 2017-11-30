@@ -40,9 +40,9 @@
 				<br/><br/><br/>
 			<br/><br/>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<header>
-						<h1>Content</h1>
+						<h1>My Items on sale:</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
