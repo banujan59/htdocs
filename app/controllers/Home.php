@@ -164,7 +164,15 @@ class Home extends Controller{
 		if(!isset($id))
 			header('location:/home/');
 		
-		$this->view('Home/product');
+		// get product information
+		$item = $this->model("Items");
+		$itemQuery = $item->where('ID', '=', $id)->get();
+		
+		// get reviews for the item
+		$review = $this->model("Reviews");
+		$reviewQuery = $review->where('ITEM_ID', '=', $id)->get();
+		
+		$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery]);
 	}
 	
 	public function logout()
