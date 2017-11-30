@@ -168,8 +168,10 @@ class Home extends Controller{
 		$itemQuery = $item->where('ID', '=', $id)->get();
 		
 		// get reviews for the item
+		/*$review = $this->model("Reviews");
+		$reviewQuery = $review->where('ITEM_ID', '=', $id)->get();*/
 		$review = $this->model("Reviews");
-		$reviewQuery = $review->where('ITEM_ID', '=', $id)->get();
+		$reviewQuery = $review->getAllReviews($id);
 		
 		$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery]);
 	}
