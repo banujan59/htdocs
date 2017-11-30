@@ -78,9 +78,9 @@
 								{
 									?>
 									<tr>
-										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->NAME;?> </a></td>
-										<td><?php echo $item->SELLER_ID;?></td>
-										<td><?php echo $item->PRICE;?></td>
+										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->ITEM_Name;?> </a></td>
+										<td><?php echo $item->SELLER_Name;?></td>
+										<td><?php echo $item->UNIT_PRICE;?></td>
 										<td>
 											<button id="removeFromCartButton" itemID="<?php echo $item->ID;?>" type="button" class="btn btn-danger">Remove From Cart</button>
 										</td>

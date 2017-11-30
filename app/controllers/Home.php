@@ -253,9 +253,12 @@ class Home extends Controller{
 		// retrieve cart items
 		// We need join cause for the below. Temporarily replaced with myItemsForSale logic.
 		$orders = $this->model('Orders');
-		$queryResults = $orders->where('USER_ID', '=', $_SESSION["userID"])->where('STATUS', '=', 'like "Open"')->get();
-		
-		$this->view("Home/cart", ["items" => $queryResults] );
+		$queryResults = $orders->where('USER_ID', '=', $_SESSION["userID"])->where('STATUS', 'LIKE', 'Open')->get();
+		//$orderDetails = $this->model('Order_Details');
+		//$queryResults1 = $orderDetails->where('ORDER_ID', '=', $queryResults[0]->ID)->get();
+		$orderDetails = $this->model('Cart_Details');
+		$queryResults1 = $orderDetails->get($queryResults[0]->ID);
+		$this->view("Home/cart", ["items" => $queryResults1] );
 		//$this->view("Home/cart");
 	}
 }
