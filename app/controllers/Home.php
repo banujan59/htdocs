@@ -127,8 +127,7 @@ class Home extends Controller{
 			{
 				if(password_verify($_POST["oldPwd"], $users[0]->PASSWORD_HASH))
 				{
-					$user = Controller::model('Users');
-					$user->setID( $_SESSION["userID"] );
+					$user = $users[0];
 					$user->setPasswordHash( password_hash( $_POST["newPwd"], PASSWORD_BCRYPT ) );
 					$user->update();
 					echo "success";

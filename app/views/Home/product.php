@@ -133,7 +133,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<p class="plusplusText">
-						Enter Long ass description here.
+						<?php
+							echo $data["items"][0]->DESCRIPTION;
+						?>
 					</p>
 				</div>
 			</div> <!-- End row -->
@@ -179,13 +181,38 @@
 										<td><?php echo $review->WRITER_ID;?></td>
 										<td>
 											<?php
-												$rating = "";
-												for($i = 0 ; $i < 3 ; $i++)
+												switch($review->RATING)
 												{
-													$rating += "�";
+													case 1:
+														?>
+															⭐
+														<?php
+													break;
+													
+													case 2:
+														?>
+															⭐�
+														<?php
+													break;
+													
+													case 3:
+														?>
+															⭐⭐⭐
+														<?php
+													break;
+													
+													case 4:
+														?>
+															⭐⭐⭐⭐
+														<?php
+													break;
+													
+													case 5:
+														?>
+															⭐⭐⭐⭐⭐
+														<?php
+													break;
 												}
-												
-												echo $rating;
 											?>
 										</td>
 										<td><?php echo $review->CONTENT;?></td>
