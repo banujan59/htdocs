@@ -37,10 +37,25 @@
 			</nav>
 			</div>
 				<br/><br/><br/>
+			<?php 
+				if( $data["items"] == null || $data["items"][0] == null)
+				{
+					?>
+						<div class="row">
+							<div class="col-md-12">
+								<p class="plusplusText">The item you are requesting could not be found.</p>
+							</div>
+						</div> <!-- End row -->
+					<?php
+				}
+				
+				else
+				{
+			?>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-5">
 					<header>
-						<h1>Product Name</h1>
+						<h1><?php echo $data["items"][0]->NAME;?></h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
@@ -51,8 +66,8 @@
 						<img id="insertion" width="100%;" src="/resources/images/1.jpg"/>
 						<div id="backButton" class="photoNavButton">&lt;</div>
 						<div id="nextButton" class="photoNavButton">&gt;</div>
-						<script>
 						<!--So do the echos.-->
+						<script>
 						var images = ["<?php echo "/resources/images/1.jpg"?>", "<?php echo "/resources/images/2.jpg"?>", "<?php echo "/resources/images/3.jpg"?>"];
 						var currentImageIndex = 0;
 						"insertion" = currentImageIndex;
@@ -118,7 +133,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<p class="plusplusText">
-						Enter Long ass description here.
+						<?php
+							echo $data["items"][0]->DESCRIPTION;
+						?>
 					</p>
 				</div>
 			</div> <!-- End row -->
@@ -130,6 +147,21 @@
 					</header>
 				</div>
 			</div> <!-- End row -->
+			<?php
+				if($data["reviews"] == null)
+				{
+				?>
+					<div class="row">
+						<div class="col-md-12">
+							<p class="plusplusText">There are no reviews for this item.</p>
+						</div>
+					</div>
+				<?php
+				}
+				
+				else
+				{
+				?>
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table">
@@ -141,6 +173,53 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+								foreach($data["reviews"] as $review)
+								{
+									?>
+									<tr>
+										<td><?php echo $review->WRITER_ID;?></td>
+										<td>
+											<?php
+												switch($review->RATING)
+												{
+													case 1:
+														?>
+															⭐
+														<?php
+													break;
+													
+													case 2:
+														?>
+															⭐�
+														<?php
+													break;
+													
+													case 3:
+														?>
+															⭐⭐⭐
+														<?php
+													break;
+													
+													case 4:
+														?>
+															⭐⭐⭐⭐
+														<?php
+													break;
+													
+													case 5:
+														?>
+															⭐⭐⭐⭐⭐
+														<?php
+													break;
+												}
+											?>
+										</td>
+										<td><?php echo $review->CONTENT;?></td>
+									</tr>
+									<?php
+								}
+							?>
 							<tr>
 								<td>Austin</td>
 								<td>⭐⭐⭐⭐⭐</td>
@@ -160,6 +239,10 @@
 					</table>
 				</div>
 			</div> <!-- End row -->
+			<?php
+				}
+			}
+			?>
 			
 
 			<hr/>

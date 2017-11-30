@@ -127,8 +127,7 @@ class Home extends Controller{
 			{
 				if(password_verify($_POST["oldPwd"], $users[0]->PASSWORD_HASH))
 				{
-					$user = Controller::model('Users');
-					$user->setID( $_SESSION["userID"] );
+					$user = $users[0];
 					$user->setPasswordHash( password_hash( $_POST["newPwd"], PASSWORD_BCRYPT ) );
 					$user->update();
 					echo "success";
@@ -164,7 +163,15 @@ class Home extends Controller{
 		if(!isset($id))
 			header('location:/home/');
 		
-		$this->view('Home/product');
+		// get product information
+		$item = $this->model("Items");
+		$itemQuery = $item->where('ID', '=', $id)->get();
+		
+		// get reviews for the item
+		$review = $this->model("Reviews");
+		$reviewQuery = $review->where('ITEM_ID', '=', $id)->get();
+		
+		$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery]);
 	}
 	
 	public function logout()
