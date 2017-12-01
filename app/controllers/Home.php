@@ -258,7 +258,7 @@ class Home extends Controller{
 					$orderQuery = $order->where('USER_ID', '=', $_SESSION["userID"])->get();
 					
 					// if there are no records
-					if( !isset($orderQuery[0]) && $orderQuery[0]->STATUS != "CART" )
+					if( !isset($orderQuery[0]) || $orderQuery[0]->STATUS != "CART" )
 					{
 						$order->setUserID( $_SESSION["userID"] );
 						$order->setDate($fullDate);
