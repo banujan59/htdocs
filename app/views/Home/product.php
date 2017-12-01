@@ -37,6 +37,7 @@
 			</nav>
 			</div>
 				<br/><br/><br/>
+				
 			<?php 
 				if( $data["items"] == null || $data["items"][0] == null)
 				{
@@ -119,7 +120,22 @@
 			</div> <!-- End row -->
 			<div class="row">
 				<div class="col-md-12">
-					<button class="btn btn-success">🛒 ADD TO CART</button>
+				<?php
+					// if already in cart
+					if( isset($data["order_status"][0]) && $data["order_status"][0]->status == "CART")
+					{
+						?>
+							<button id="removeFromCartButton" itemID="<?php echo $data["items"][0]->ID;?>" class="btn btn-danger cartButton">🛒 REMOVE FROM CART</button>
+						<?php 
+					}
+					
+					else
+					{
+						?>
+							<button id="addToCartButton" itemID="<?php echo $data["items"][0]->ID;?>" class="btn btn-success cartButton">🛒 ADD TO CART</button>
+						<?php
+					}
+				?>
 				</div>
 			</div> <!-- End row -->
 			<div class="row">

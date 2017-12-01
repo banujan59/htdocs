@@ -31,6 +31,20 @@ class Orders extends Model
 	{
 		$this->STATUS = $value;
 	}
+	
+	
+	public function getOrderStatus($itemID, $userID)
+	{	
+		$select	= "SELECT status FROM orders, order_details WHERE orders.ID = order_details.ORDER_ID AND order_details.ITEM_ID = $itemID AND orders.USER_ID = $userID";
+        $stmt = self::$_connection->prepare($select);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
+        $returnVal = [];
+        while($rec = $stmt->fetch()){
+            $returnVal[] = $rec;
+        }
+        return $returnVal;
+	}
 }
 
 ?>
