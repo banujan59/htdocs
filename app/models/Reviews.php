@@ -37,6 +37,22 @@ class Reviews extends Model
 	{
 		$this->TYPE = $value;
 	}
+	
+	public function getAllReviews($itemID)
+	{
+		
+		$select	= "SELECT users.FNAME AS writer_fname, users.LNAME AS writer_lname, reviews.* FROM users, reviews WHERE reviews.WRITER_ID = users.ID AND reviews.ITEM_ID = $itemID;";
+		
+		//$select	= "SELECT users.FNAME | ' ' | users.LNAME as WRITER_NAME, reviews.WRITER_ID, reviews.RATING, reviews.CONTENT, reviews.TYPE FROM reviews, users WHERE reviews.WRITER_ID = users.ID AND reviews.ITEM_ID = $itemID";
+        $stmt = self::$_connection->prepare($select);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
+        $returnVal = [];
+        while($rec = $stmt->fetch()){
+            $returnVal[] = $rec;
+        }
+        return $returnVal;
+	}
 }
 
 ?>
