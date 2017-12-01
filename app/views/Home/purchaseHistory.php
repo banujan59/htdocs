@@ -17,8 +17,6 @@
 		
 		<!-- Scripts -->
 		<script src="/resources/js/jquery-1.10.2.min.js"></script>
-		<script src="/resources/js/product.js"></script>
-		<script src="/resources/js/myItemsForSale.js"></script>
 	</head>
 	
 	<body>
@@ -38,26 +36,39 @@
 			</nav>
 			</div>
 				<br/><br/><br/>
-			<br/><br/>
-			<div class="row">
-				<div class="col-md-4">
+				<div class="row">
+				<div class="col-md-5">
 					<header>
-						<h1>My Items:</h1>
+						<h1>My Purchased Items</h1>
+					</header>
+				</div>
+				</div> <!-- End row -->
+			<?php
+					if( !isset($data["items"][0]) || $data["items"][0] == null )
+					{
+						?>
+							<p class="plusplusText">There is no items to show.</p>
+						<?php 
+					}
+					
+					else
+					{
+				?>
+			<div class="row">
+				<div class="col-md-3">
+					<header>
+						<h1>Content</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
 			<div class="row">
 				<div class="col-md-12">
-				<?php
-					if( isset($data["items"]) )
-					{
-					?>
 					<table class="table">
 						<thead>
 							<tr>
 								<th>Name</th>
+								<th>Seller</th>
 								<th>Price</th>
-								<th>Option</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -67,26 +78,16 @@
 									?>
 									<tr>
 										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->NAME;?> </a></td>
+										<td><?php echo $item->seller_fname . ' ' . $item->seller_lname;?></td>
 										<td><?php echo $item->PRICE;?></td>
-										<td>
-											<button itemID="<?php echo $item->ID;?>" type="button" class="btn btn-danger deleteItemButton">Withdraw Sale</button>
-										</td>
 									</tr>
 									<?php
 								}
 							?>
 						</tbody>
 					</table>
-					<?php
-					}
 					
-					else // if no items were found
-					{
-						?>
-							<p class="plusplusText">
-								You have not purchased an item yet.
-							</p>
-						<?php
+					<?php
 					}
 					?>
 				</div>

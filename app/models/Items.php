@@ -62,6 +62,30 @@ WHERE items.SELLER_ID = users.ID AND
         }
         return $returnVal;
 	}
+	
+	public function getItemsPurchased($userID)
+	{
+		/*
+		
+		SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname'
+FROM  items, users
+WHERE items.SELLER_ID = users.ID AND
+	items.ID IN (SELECT order_details.ITEM_ID 
+                 FROM order_details, orders
+                 WHERE order_details.ORDER_ID = orders.ID
+                 AND orders.STATUS = 'PURCHASED'
+                 AND orders.USER_ID = 1);
+		*/
+		$select	= "SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname' FROM  items, users WHERE items.SELLER_ID = users.ID AND items.ID IN (SELECT order_details.ITEM_ID  FROM order_details, orders WHERE order_details.ORDER_ID = orders.ID AND orders.STATUS = 'PURCHASED' AND orders.USER_ID = $userID)";
+        $stmt = self::$_connection->prepare($select);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
+        $returnVal = [];
+        while($rec = $stmt->fetch()){
+            $returnVal[] = $rec;
+        }
+        return $returnVal;
+	}
 }
 
 ?>

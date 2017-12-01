@@ -60,8 +60,8 @@
 					<p class="plusplusText">
 						Total : 0$
 					</p>
-					<button id="clearCartButton" type="button" class="btn btn-danger">Clear Cart</button>
-					<button id="paymentButton" type="button" class="btn btn-success">Proceed to payment</button>
+					<button id="clearCartButton" type="button" class="cartOptionButton btn btn-danger">Clear Cart</button>
+					<button id="paymentButton" type="button" class="cartOptionButton btn btn-success">Proceed to payment</button>
 				</div>
 			</div> <!-- End row -->
 			<br/><br/>

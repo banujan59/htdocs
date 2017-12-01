@@ -191,6 +191,29 @@ class Home extends Controller{
 					echo "cart cleared";
 				}
 				
+				else if($_POST["operation"] == "pay")
+				{
+					// query object
+					$orderQuery = $order->where("STATUS", "=", "CART")->where("USER_ID", "=", $_SESSION["userID"])->get();
+					
+					if( isset($orderQuery[0]) )
+					{
+						// re-create object
+						$order = $this->model("Orders");
+						$order->setID( $orderQuery[0]->ID );
+						$order->setUserID( $orderQuery[0]->USER_ID );
+						$order->setDate( $orderQuery[0]->DATE );
+						$order->setStatus( "PURCHASED" );
+						
+						// update DB
+						$order->update();
+						echo "payed";
+					}
+					
+					else
+						echo "ERROR: Order not found!";
+				}
+				
 				// if the operation is to add to cart
 				else if($_POST["operation"] == "add_to_cart")
 				{
@@ -255,10 +278,10 @@ class Home extends Controller{
 					$fullDate = $year . '-' . $ymonth . '-' . $day;
 					
 					// check if an order record exists
-					$orderQuery = $order->where('USER_ID', '=', $_SESSION["userID"])->get();
+					$orderQuery = $order->where('USER_ID', '=', $_SESSION["userID"])->where('STATUS', '=', 'CART')->get();
 					
 					// if there are no records
-					if( !isset($orderQuery[0]) || $orderQuery[0]->STATUS != "CART" )
+					if( !isset($orderQuery[0]) )
 					{
 						$order->setUserID( $_SESSION["userID"] );
 						$order->setDate($fullDate);
@@ -267,7 +290,7 @@ class Home extends Controller{
 						// insert order
 						$order->insert();
 						// reset the query var
-						$orderQuery = $order->where('USER_ID', '=', $_SESSION["userID"])->get();
+						$orderQuery = $order->where('USER_ID', '=', $_SESSION["userID"])->where('STATUS', '=', 'CART')->get();
 					}
 					
 					// if there is a record
@@ -395,7 +418,17 @@ class Home extends Controller{
 	
 	public function purchaseHistory()
 	{
-		$this->view("Home/purchaseHistory");
+		// a user who is not logged in, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
+		// get purchased items
+		$item = $this->model("Items");
+		$itemQuery = $item->getItemsPurchased($_SESSION["userID"]);
+		
+		$this->view("Home/purchaseHistory", ["items"=>$itemQuery]);
 	}
 	
 	public function cart()

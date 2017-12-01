@@ -48,22 +48,6 @@ class Orders extends Model
 	
 	public function clearCart($userID)
 	{
-		/*
-		DELETE 
-FROM order_details
-WHERE order_details.ORDER_ID = (select orders.ID 
-                                FROM orders
-                                WHERE orders.STATUS = 'CART' AND USER_ID = 1);
-                                
-DELETE
-FROM orders
-WHERE STATUS = 'CART' AND USER_ID = 1;
-
-
-                                
-DELETE FROM orders WHERE STATUS = 'CART' AND USER_ID = 1;
-		*/
-		
 		$delete = "DELETE FROM order_details WHERE order_details.ORDER_ID = (select orders.ID FROM orders WHERE orders.STATUS = 'CART' AND USER_ID = $userID)";
         $stmt = self::$_connection->prepare($delete);
         $stmt->execute(array($this->_PKName=>$this->{$this->_PKName}));
