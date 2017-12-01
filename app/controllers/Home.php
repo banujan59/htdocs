@@ -163,17 +163,160 @@ class Home extends Controller{
 		if(!isset($id))
 			header('location:/home/');
 		
-		// get product information
-		$item = $this->model("Items");
-		$itemQuery = $item->where('ID', '=', $id)->get();
+		// if we have form data
+		if( isset($_POST["operation"]) )
+		{
+			// if the user is not logged in, do not continue
+			if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+			{
+				echo "user not logged in";
+			}
+			
+			// if the user is logged in, we can continue
+			else
+			{
+				$order = $this->model("Orders");
+				$orderDetails = $this->model("Order_Details");
+				
+				// if the operation is to remove from cart
+				if($_POST["operation"] == "remove_from_cart")
+				{
+					$orderDetails->removeFromCart($id, $_SESSION["userID"]);
+					echo "removed from cart";
+				}
+				
+				// if the operation is to add to cart
+				else if($_POST["operation"] == "add_to_cart")
+				{
+					// update the date
+					$today = getdate();
+					$year = $today["year"];
+					$month = $today["month"];
+					$day = $today["mday"];
+					$ymonth;
+					
+					switch($month)
+					{
+						case "January":
+							$ymonth = 1;
+						break;
+						
+						case "February":
+							$ymonth = 2;
+						break;
+						
+						case "March":
+							$ymonth = 3;
+						break;
+						
+						case "April":
+							$ymonth = 4;
+						break;
+						
+						case "May":
+							$ymonth = 5;
+						break;
+						
+						case "June":
+							$ymonth = 6;
+						break;
+						
+						case "July":
+							$ymonth = 7;
+						break;
+						
+						case "August":
+							$ymonth = 8;
+						break;
+						
+						case "September":
+							$ymonth = 9;
+						break;
+						
+						case "October":
+							$ymonth = 10;
+						break;
+						
+						case "November":
+							$ymonth = 11;
+						break;
+						
+						case "December":
+							$ymonth = 12;
+						break;
+					}
+					
+					$fullDate = $year . '-' . $ymonth . '-' . $day;
+					
+					// check if an order record exists
+					$orderQuery = $order->where('USER_ID', '=', $_SESSION["userID"])->get();
+					
+					// if there are no records
+					if( !isset($orderQuery[0]) && $orderQuery[0]->STATUS != "CART" )
+					{
+						$order->setUserID( $_SESSION["userID"] );
+						$order->setDate($fullDate);
+						$order->setStatus("CART");
+					
+						// insert order
+						$order->insert();
+						// reset the query var
+						$orderQuery = $order->where('USER_ID', '=', $_SESSION["userID"])->get();
+					}
+					
+					// if there is a record
+					else
+					{
+						$order->setID( $orderQuery[0]->ID );
+						$order->setUserID( $_SESSION["userID"] );
+						$order->setDate($fullDate);
+						$order->setStatus("CART");
+						
+						// update the record
+						$order->update();
+					}
+					
+					// now the order details
+					$item = $this->model("Items");
+					$itemQuery = $item->where("ID", "=", $id)->get();
+					
+					$orderDetails->setOrderID( $orderQuery[0]->ID );
+					$orderDetails->setItemID( $id );
+					$orderDetails->setQuantity( 1 );
+					$orderDetails->setUnitPrice( $itemQuery[0]->PRICE );
+					
+					// insert details
+					$orderDetails->insert();
+					
+					
+					echo "added to cart";
+				}
+				
+				// if the operation is not recognized
+				else
+				{
+					echo "Operation not recognized.";
+				}
+			}
+		}
 		
-		// get reviews for the item
-		/*$review = $this->model("Reviews");
-		$reviewQuery = $review->where('ITEM_ID', '=', $id)->get();*/
-		$review = $this->model("Reviews");
-		$reviewQuery = $review->getAllReviews($id);
+		// if we don't have form data
+		else
+		{
+			// get product information
+			$item = $this->model("Items");
+			$itemQuery = $item->where('ID', '=', $id)->get();
 		
-		$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery]);
+			// get reviews for the item
+			$review = $this->model("Reviews");
+			$reviewQuery = $review->getAllReviews($id);
+		
+			// get status of the item for the current user
+			$order = $this->model("Orders");
+			$orderStatus = $order->getOrderStatus($id, $_SESSION["userID"]);
+		
+			$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery, "order_status"=>$orderStatus]);
+		} // end else
 	}
 	
 	public function logout()
@@ -242,6 +385,11 @@ class Home extends Controller{
 		
 			$this->view("Home/myItemsForSale", ["items" => $queryResults] );
 		}
+	}
+	
+	public function purchaseHistory()
+	{
+		$this->view("Home/purchaseHistory");
 	}
 	
 	public function cart()

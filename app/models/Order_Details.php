@@ -31,6 +31,19 @@ class Order_Details extends Model
 	{
 		$this->UNIT_PRICE = $value;
 	}
+	
+	
+	public function removeFromCart($itemID, $userID)
+	{
+		/*DELETE 
+FROM order_details
+WHERE order_details.ITEM_ID = 5
+	AND order_details.ORDER_ID = (SELECT orders.ID FROM orders WHERE orders.USER_ID = 1);
+	*/
+		$delete = "DELETE FROM order_details WHERE order_details.ITEM_ID = $itemID AND order_details.ORDER_ID = (SELECT orders.ID FROM orders WHERE orders.USER_ID = $userID)";
+        $stmt = self::$_connection->prepare($delete);
+        $stmt->execute();
+	}
 }
 
 ?>
