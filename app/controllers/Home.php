@@ -185,6 +185,12 @@ class Home extends Controller{
 					echo "removed from cart";
 				}
 				
+				else if($_POST["operation"] == "clear_cart")
+				{
+					$order->clearCart($_SESSION["userID"]);
+					echo "cart cleared";
+				}
+				
 				// if the operation is to add to cart
 				else if($_POST["operation"] == "add_to_cart")
 				{
@@ -400,6 +406,12 @@ class Home extends Controller{
 			header('location:/home/index');
 		}
 		
+		$item = $this->model("Items");
+		$itemQuery = $item->getItemsInCart($_SESSION["userID"]);
+		
+		$this->view("Home/cart", ["items"=>$itemQuery]);
+		
+		/* Jeremya's code
 		// retrieve cart items
 		// We need join cause for the below. Temporarily replaced with myItemsForSale logic.
 		$orders = $this->model('Orders');
@@ -410,6 +422,7 @@ class Home extends Controller{
 		$queryResults1 = $orderDetails->get($queryResults[0]->ID);
 		$this->view("Home/cart", ["items" => $queryResults1] );
 		//$this->view("Home/cart");
+		*/
 	}
 }
 ?>

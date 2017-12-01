@@ -40,7 +40,7 @@ body
 	transition: .5s;
 }
 
-.topBar form input:hover
+.topBar form input:hover, .topBar form input:focus
 {
 	width: 100%;
 	left: 0%;
