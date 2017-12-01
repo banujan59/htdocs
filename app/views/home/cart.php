@@ -17,7 +17,7 @@
 		
 		<!-- Scripts -->
 		<script src="/resources/js/jquery-1.10.2.min.js"></script>
-		<script src="/resources/js/product.js"></script>
+		<script src="/resources/js/cart.js"></script>
 	</head>
 	
 	<body>
@@ -43,14 +43,25 @@
 						<h1>My Cart</h1>
 					</header>
 				</div>
-			</div> <!-- End row -->
-			<div class="row">
-				<div class="col-md-12">
+				</div> <!-- End row -->
+				<div class="row">
+					<div class="col-md-12">
+			<?php
+					if( !isset($data["items"][0]) || $data["items"][0] == null )
+					{
+						?>
+							<p class="plusplusText">You have no items in your cart.</p>
+						<?php 
+					}
+					
+					else
+					{
+				?>
 					<p class="plusplusText">
 						Total : 0$
 					</p>
-					<button type="button" class="btn btn-danger">Clear Cart</button>
-					<button type="button" class="btn btn-success">Proceed to payment</button>
+					<button id="clearCartButton" type="button" class="btn btn-danger">Clear Cart</button>
+					<button id="paymentButton" type="button" class="btn btn-success">Proceed to payment</button>
 				</div>
 			</div> <!-- End row -->
 			<br/><br/>
@@ -78,11 +89,11 @@
 								{
 									?>
 									<tr>
-										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->ITEM_Name;?> </a></td>
-										<td><?php echo $item->Seller_Name;?></td>
-										<td><?php echo $item->UNIT_PRICE;?></td>
+										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->NAME;?> </a></td>
+										<td><?php echo $item->seller_fname . ' ' . $item->seller_lname;?></td>
+										<td><?php echo $item->PRICE;?></td>
 										<td>
-											<button id="removeFromCartButton" itemID="<?php echo $item->ID;?>" type="button" class="btn btn-danger">Remove From Cart</button>
+											<button itemID="<?php echo $item->ID;?>" type="button" class="removeFromCartButton btn btn-danger">Remove From Cart</button>
 										</td>
 									</tr>
 									<?php
@@ -90,6 +101,10 @@
 							?>
 						</tbody>
 					</table>
+					
+					<?php
+					}
+					?>
 				</div>
 			</div> <!-- End row -->
 			

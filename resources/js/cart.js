@@ -1,25 +1,54 @@
 $(function()
 {
-	$("#deleteItemButton").click(function(e)
+	$(".removeFromCartButton").click(function(e)
+	{
+		e.preventDefault();
+		var itemID = $(this).attr("itemID");
+		
+		// prepare request
+		var data = {"operation" : "remove_from_cart"};
+		var url = "/home/product/" + itemID;
+		
+		// send request
+		$.post(url, data, function(serverMessage)
+		{
+			if(serverMessage == "removed from cart")
+			{
+				location.reload();
+			}
+			
+			else
+			{
+				console.log(serverMessage);
+				window.alert("Your request could not be proceeded at this momement");
+			}
+		});
+	});
+	
+	$("#clearCartButton").click(function(e)
 	{
 		e.preventDefault();
 		
-		// Only delete if user agreed to do so!
-		if (confirm('Are you sure you want to delete this item?')) 
+		var data = {"operation" : "clear_cart"};
+		
+		$.post("/home/product/0", data, function(serverMessage)
 		{
-			$.post("/home/cart", {"itemIDToDelete" : $("	#deleteItemButton").attr("itemID")}, function(serverMessage)
-				{
-					if(serverMessage == "Item deleted!")
-					{
-						location.reload();
-					}
-					
-					else
-					{
-						console.log(serverMessage);
-						window.alert("Could not delete. Try again later.");
-					}
-				});
-		}
+			if(serverMessage == "cart cleared")
+			{
+				location.reload();
+			}
+			
+			else
+			{
+				console.log(serverMessage);
+				window.alert("could not proceed your request");
+			}
+		});
+	});
+	
+	$("#paymentButton").click(function(e)
+	{
+		e.preventDefault();
+		
 	});
 });

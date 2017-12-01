@@ -46,50 +46,6 @@
 			</div> <!-- End row -->
 				<br/>
 				<hr/>
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<div class="resultBox" link="/home/product/5">
-						<div class="resultDescription">
-							<ul>
-								<li>Name: Golden shoes</li>
-								<li>Price: $0</li>
-							</ul>
-						</div>
-						<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
-					</div>
-				</div> <!-- End col -->
-			</div> <!-- End row -->
-			<hr/>
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<div class="resultBox" link="/home/product/5">
-						<div class="resultDescription">
-							<ul>
-								<li>Name: Golden shoes</li>
-								<li>Price: $0</li>
-							</ul>
-						</div>
-						<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
-					</div>
-				</div> <!-- End col -->
-			</div> <!-- End row -->
-			<hr/>
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<div class="resultBox" link="/home/product/5">
-						<div class="resultDescription">
-							<ul>
-								<li>Name: Golden shoes</li>
-								<li>Price: $0</li>
-							</ul>
-						</div>
-						<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
-					</div>
-				</div> <!-- End col -->
-			</div> <!-- End row -->
 			
 			<?php
 				foreach($data["items"] as $item)
