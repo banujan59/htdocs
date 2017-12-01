@@ -69,7 +69,7 @@
 										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->NAME;?> </a></td>
 										<td><?php echo $item->PRICE;?></td>
 										<td>
-											<button id="deleteItemButton" itemID="<?php echo $item->ID;?>" type="button" class="btn btn-danger">Withdraw Sale</button>
+											<button itemID="<?php echo $item->ID;?>" type="button" class="btn btn-danger deleteItemButton">Withdraw Sale</button>
 										</td>
 									</tr>
 									<?php
