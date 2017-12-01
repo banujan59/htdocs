@@ -70,7 +70,7 @@
 						<script>
 						var images = ["<?php echo "/resources/images/1.jpg"?>", "<?php echo "/resources/images/2.jpg"?>", "<?php echo "/resources/images/3.jpg"?>"];
 						var currentImageIndex = 0;
-						"insertion" = currentImageIndex;
+						currentImageIndex = "insertion";
 						$(".photoNavButton").click(function(e)
 						{
 							var id = $(this).attr("id");

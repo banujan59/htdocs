@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Shoe++ - My Items for Sale</title>
+		<title>Shoe++ - Purchase History</title>
 		<meta charset="utf-8"/>
 		<link rel="icon" href="/resources/images/logo.png">
 		
@@ -42,7 +42,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<header>
-						<h1>My Items on sale:</h1>
+						<h1>My Items:</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
@@ -84,7 +84,7 @@
 					{
 						?>
 							<p class="plusplusText">
-								You have no items on sale.
+								You have not purchased an item yet.
 							</p>
 						<?php
 					}

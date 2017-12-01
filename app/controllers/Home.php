@@ -244,6 +244,11 @@ class Home extends Controller{
 		}
 	}
 	
+	public function purchaseHistory()
+	{
+		$this->view("Home/purchaseHistory");
+	}
+	
 	public function cart()
 	{
 		// a user who is not logged in, shouldn't access this page

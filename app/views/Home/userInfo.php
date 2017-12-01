@@ -89,6 +89,8 @@
 									<br/><br/>
 									<button id="viewSaleItemsButton" type="button" class="btn btn-warning" onClick="location='/home/myItemsForSale';">View My Items for Sale</button>
 									<br/><br/>
+									<button id="viewPurchaseHistoryButton" type="button" class="btn btn-warning" onClick="location='/home/purchaseHistory';">View Purchase History</button>
+									<br/><br/>
 									<button id="viewCartButton" type="button" class="btn btn-warning" onClick="location='/home/cart';">View My Cart</button>
 								</div>
 							</div>
