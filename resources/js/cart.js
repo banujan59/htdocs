@@ -25,16 +25,33 @@ $(function()
 		});
 	});
 	
-	$("#clearCartButton").click(function(e)
+	$(".cartOptionButton").click(function(e)
 	{
 		e.preventDefault();
 		
-		var data = {"operation" : "clear_cart"};
+		
+		var data;
+		
+		if($(this).attr("id") == "clearCartButton")
+		{
+			data = {"operation" : "clear_cart"};
+		}
+		
+		else if($(this).attr("id") == "paymentButton")
+		{
+			data = {"operation" : "pay"};
+		}
 		
 		$.post("/home/product/0", data, function(serverMessage)
 		{
 			if(serverMessage == "cart cleared")
 			{
+				location.reload();
+			}
+			
+			else if(serverMessage == "payed")
+			{
+				window.alert("You have purchased all items in your cart");
 				location.reload();
 			}
 			
@@ -44,11 +61,5 @@ $(function()
 				window.alert("could not proceed your request");
 			}
 		});
-	});
-	
-	$("#paymentButton").click(function(e)
-	{
-		e.preventDefault();
-		
 	});
 });
