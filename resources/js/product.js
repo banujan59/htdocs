@@ -100,4 +100,72 @@ $(function()
 			}
 		});
 	});
+	
+	
+	// the reviews
+	$("#submitReviewButton").click(function(e)
+	{
+		e.preventDefault();
+		
+		// get input
+		var itemID = $(this).attr("itemID");
+		var content = $("textarea").val();
+		var reviewType = $("#reviewTypeSelector").val();
+		var rating = $("#ratingSelector").val();
+		
+		// create data object
+		var data = 
+		{
+			"operation" : "post",
+			"ITEM_ID" : itemID,
+			"RATING" : rating,
+			"CONTENT" : content,
+			"TYPE" : reviewType
+		};
+		
+		// send requeset
+		$.post("/home/review", data, function(serverMessage)
+		{
+			if(serverMessage == "success")
+			{
+				location.reload();
+			}
+			
+			else
+			{
+				console.log(serverMessage);
+				window.alert("Your request could not be completed.");
+			}
+		});
+	});
+	
+	$("#deleteReviewButton").click(function(e)
+	{
+		e.preventDefault();
+		
+		// get input
+		var itemID = $(this).attr("itemID");
+		
+		// create data object
+		var data =
+		{
+			"operation" : "delete",
+			"ITEM_ID" : itemID
+		};
+		
+		// request
+		$.post("/home/review", data, function(serverMessage)
+		{
+			if(serverMessage == "success")
+			{
+				location.reload();
+			}
+			
+			else
+			{
+				console.log(serverMessage);
+				window.alert("Something went wrong.... Please try again later.");
+			}
+		});
+	});
 })

@@ -40,7 +40,6 @@ class Reviews extends Model
 	
 	public function getAllReviews($itemID)
 	{
-		
 		$select	= "SELECT users.FNAME AS writer_fname, users.LNAME AS writer_lname, reviews.* FROM users, reviews WHERE reviews.WRITER_ID = users.ID AND reviews.ITEM_ID = $itemID;";
         $stmt = self::$_connection->prepare($select);
         $stmt->execute();
@@ -50,6 +49,13 @@ class Reviews extends Model
             $returnVal[] = $rec;
         }
         return $returnVal;
+	}
+	
+	public function deleteReviewFromUser($userID, $itemID)
+	{
+		$delete = "DELETE FROM reviews WHERE WRITER_ID = $userID AND ITEM_ID = $itemID";
+        $stmt = self::$_connection->prepare($delete);
+        $stmt->execute();
 	}
 }
 

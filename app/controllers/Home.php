@@ -339,13 +339,52 @@ class Home extends Controller{
 			// get reviews for the item
 			$review = $this->model("Reviews");
 			$reviewQuery = $review->getAllReviews($id);
+			
+			// check if there is already a review by the current user
+			$reviewByCurrentUser = $review->where("WRITER_ID", "=", $_SESSION["userID"])->get();
 		
 			// get status of the item for the current user
 			$order = $this->model("Orders");
 			$orderStatus = $order->getOrderStatus($id, $_SESSION["userID"]);
 		
-			$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery, "order_status"=>$orderStatus]);
+			$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery, "order_status"=>$orderStatus, "reviewByCurrentUser"=>$reviewByCurrentUser]);
 		} // end else
+	}
+
+	// function to handle reviews
+	public function review()
+	{
+		// a user who is not logged in, shouldn't access this page
+		if( !isset($_SESSION["uname"]) || $_SESSION["uname"] == null)
+		{
+			header('location:/home/index');
+		}
+		
+		$review = $this->model("Reviews");
+		
+		// check if data forms are set
+		// for posting a review
+		if( isset($_POST["operation"]) && $_POST["operation"] == "post" && isset($_POST["ITEM_ID"]) && isset($_POST["RATING"]) && isset($_POST["CONTENT"]) && isset($_POST["TYPE"]))
+		{
+			// create object
+			$review->setWriterID( $_SESSION["userID"] );
+			$review->setItemID( $_POST["ITEM_ID"] );
+			$review->setRating( $_POST["RATING"] );
+			$review->setContent( $_POST["CONTENT"] );
+			$review->setType( $_POST["TYPE"] );
+			
+			// insert into DB 
+			$review->insert();
+			echo "success";
+		}
+		
+		// for deleting a review
+		else if( isset($_POST["operation"]) && $_POST["operation"] == "delete" && isset($_POST["ITEM_ID"]) )
+		{
+			// delete review
+			$review->deleteReviewFromUser($_SESSION["userID"], $_POST["ITEM_ID"]);
+			echo "success";
+		}
 	}
 	
 	public function logout()
