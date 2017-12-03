@@ -65,9 +65,17 @@ class Items extends Model
         return $returnVal;
 	}
 	
-	public function getItemCurrency($userID)
+	public function getItemCurrency($userID)//Unsure.
 	{
-		$select = ""
+		$select = ""//To be changed.
+		$stmt = self::$_connection->prepare($select);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
+        $returnVal = [];
+        while($rec = $stmt->fetch()){
+            $returnVal[] = $rec;
+        }
+        return $returnVal;
 	}
 }
 
