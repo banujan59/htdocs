@@ -152,6 +152,8 @@
 						<?php
 							echo $data["items"][0]->DESCRIPTION;
 						?>
+						<br/>
+						<b>Price: <?php echo $data["items"][0]->PRICE;?> <?php echo $_SESSION['COUNTRY_NAME'];?> Currency</b>
 					</p>
 				</div>
 			</div> <!-- End row -->

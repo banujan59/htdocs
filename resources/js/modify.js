@@ -84,7 +84,7 @@ $(function()
 				password : password
 			}
 
-			window.alert(email + uname + fname + lname + password);
+			//window.alert(email + uname + fname + lname + password);
 			
 			$.post("/home/modify", data, function(serverOutput)
 			{

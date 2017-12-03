@@ -64,6 +64,11 @@ class Items extends Model
         }
         return $returnVal;
 	}
+	
+	public function getItemCurrency($userID)
+	{
+		$select = ""
+	}
 }
 
 ?>
