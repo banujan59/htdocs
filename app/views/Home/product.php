@@ -153,7 +153,15 @@
 							echo $data["items"][0]->DESCRIPTION;
 						?>
 						<br/>
-						<b>Price: <?php echo $data["items"][0]->PRICE;?> <?php echo $_SESSION['COUNTRY_NAME'];?> Currency</b>
+						<b>Price: <?php echo $data["items"][0]->PRICE;?> <?php echo $_SESSION['COUNTRY_NAME'];?> Currency</b> <!--In this case, the country shown is fine cause the BUYER is from this country. But the numbers
+																															are from the SELLER'S country, therefore, once you somehow connect the exchange rate, I'll convert.-->
+						<br/>
+						<b>Seller: <?php
+								foreach($data["items"] as $item)
+								{
+									echo $item->seller_fname . ' ' . $item->seller_lname;
+								}
+							?></b> <!--After this, I would put the positivity percentage.-->
 					</p>
 				</div>
 			</div> <!-- End row -->

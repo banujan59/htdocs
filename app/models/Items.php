@@ -67,7 +67,7 @@ class Items extends Model
 	
 	public function getItemCurrency($userID)//Unsure.
 	{
-		$select = ""//To be changed.
+		$select = "SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname', countries.COUNTRY_NAME AS 'country_name', countries.EXCHANGE_RATE AS 'exchange_rate' WHERE items.SELLER_ID = users.ID AND countries.ID = users.COUNTRY_ID";//To be changed.
 		$stmt = self::$_connection->prepare($select);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
