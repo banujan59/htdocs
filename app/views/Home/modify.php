@@ -17,7 +17,7 @@
 		
 		<!-- Scripts -->
 		<script src="../resources/js/jquery-1.10.2.min.js"></script>
-		<script src="../resources/js/register.js"></script>
+		<script src="../resources/js/modify.js"></script>
 	</head>
 	
 	<body>
@@ -53,31 +53,15 @@
 							<div class="form-group">
 								<label class="control-label col-sm-3" for="email">Email:</label>
 								<div class="inputContainer col-sm-8">
-									<input type="email" name="email" class="form-control" placeholder="Enter Email">
+									<input type="email" name="email" class="form-control" placeholder="Enter Email" value="<?php echo $_SESSION['email'];?>">
 								</div>
 								<span id="emailErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-sm-3" for="pwd">New Password:</label>
-								<div class="inputContainer col-sm-8"> 
-									<input type="password" name="password" class="form-control" placeholder="Enter Password">
-								</div>
-								<span id="passwordErrorMessage" class="control-label col-sm-2 errorMessage"></span>
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="pwd">Confirm New Password:</label>
-								<div class="inputContainer col-sm-8"> 
-									<input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password">
-								</div>
-								<span id="confirmPasswordErrorMessage" class="control-label col-sm-2 errorMessage"></span>
-							</div>
-							
-							<div class="form-group">
 								<label class="control-label col-sm-3" for="pwd">Username:</label>
 								<div class="inputContainer col-sm-8"> 
-									<input type="text" name="uname" class="form-control" placeholder="Enter Username">
+									<input type="text" name="uname" class="form-control" placeholder="Enter Username" value="<?php echo $_SESSION['uname'];?>">
 								</div>
 								<span id="unameErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
@@ -85,7 +69,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-3" for="pwd">First Name:</label>
 								<div class="inputContainer col-sm-8"> 
-									<input type="text" name="fname" class="form-control" placeholder="Enter Your First Name">
+									<input type="text" name="fname" class="form-control" placeholder="Enter Your First Name" value="<?php echo $_SESSION['fname'];?>">
 								</div>
 								<span id="fnameErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
@@ -93,7 +77,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-3" for="pwd">Last Name:</label>
 								<div class="inputContainer col-sm-8"> 
-									<input type="text" name="lname" class="form-control" placeholder="Enter Your Last Name">
+									<input type="text" name="lname" class="form-control" placeholder="Enter Your Last Name" value="<?php echo $_SESSION['lname'];?>">
 								</div>
 								<span id="lnameErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
@@ -113,24 +97,16 @@
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-sm-3" for="pwd">Old Password:</label>
+								<label class="control-label col-sm-3" for="pwd">Enter Password:</label>
 								<div class="inputContainer col-sm-8"> 
 									<input type="password" name="password" class="form-control" placeholder="Enter Password">
 								</div>
 								<span id="passwordErrorMessage" class="control-label col-sm-2 errorMessage"></span>
 							</div>
 							
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="pwd">Confirm Old Password:</label>
-								<div class="inputContainer col-sm-8"> 
-									<input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password">
-								</div>
-								<span id="confirmPasswordErrorMessage" class="control-label col-sm-2 errorMessage"></span>
-							</div>
-							
 							<div class="form-group"> 
 								<div class="control-label col-sm-8">
-									<button id="registerUserButton" type="submit" class="btn btn-default">Register</button>
+									<button id="modifyUserButton" type="submit" class="btn btn-default">Update/Change</button>
 								</div>
 							</div>
 							

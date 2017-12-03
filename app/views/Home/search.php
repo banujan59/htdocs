@@ -40,7 +40,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<header>
-						<h1>Search Results for: '<?php echo $data['name'];?>'</h1>
+						<h1>Search Results For: '<?php echo $data['name'];?>'</h1>
 					</header>
 				</div> <!-- End col -->
 			</div> <!-- End row -->

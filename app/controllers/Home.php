@@ -152,6 +152,33 @@ class Home extends Controller{
 			header('location:/home/index');
 		}
 		
+		if( isset($_POST["email"]) && isset($_POST["uname"]) && isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["countryID"]) && isset($_POST["password"]) )
+		{
+			$user = Controller::model('Users');
+			$users = $user->where('id','=',$_SESSION["id"])->get();
+			
+			if( isset($users[0]) )
+			{
+				if(password_verify($_POST["password"], $users[0]->PASSWORD_HASH))
+				{
+					$user = $users[0];
+					$user->setEmail( $_POST["email"] );
+					$user->setUname( $_POST["uname"] );
+					$user->setFname( $_POST["fname"] );
+					$user->setLname( $_POST["lname"] );
+					$user->setCountryID( $_POST["countryID"] );
+					$user->update();
+					
+					echo "success";
+				}
+				
+				else
+				{
+					echo "current pwd invalid";
+				}
+			}
+		}
+		
 		$aClient = $this->model('Countries');
 		$myCountries = $aClient->get();
 		$this->view('Home/modify', ['countries'=>$myCountries]);
