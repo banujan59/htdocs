@@ -66,7 +66,7 @@ $(function()
 			// if the item was added to the cart
 			if(serverMessage == "added to cart")
 			{
-				window.alert("The item was added to the cart");
+				window.alert("The item was added to the cart.");
 				
 				$("#addToCartButton").removeClass("btn-success");
 				$("#addToCartButton").addClass("btn-danger");
@@ -77,7 +77,7 @@ $(function()
 			// if the item was removed from the cart
 			else if(serverMessage == "removed from cart")
 			{
-				window.alert("The item was removed from the cart");
+				window.alert("The item was removed from the cart.");
 				
 				$("#removeFromCartButton").removeClass("btn-danger");
 				$("#removeFromCartButton").addClass("btn-success");
@@ -96,7 +96,7 @@ $(function()
 			else
 			{
 				console.log(serverMessage);
-				window.alert("Your request could not be completed");
+				window.alert("Your request could not be completed.");
 			}
 		});
 	});
@@ -139,6 +139,37 @@ $(function()
 		});
 	});
 	
+	$("#modifyReviewButton").click(function(e)
+	{
+		e.preventDefault();
+		
+		// get input
+		var itemID = $(this).attr("itemID");
+		
+		// create data object
+		var data =
+		{
+			//I figure that maybe 'delete' should be changed.
+			"operation" : "delete",
+			"ITEM_ID" : itemID
+		};
+		
+		// request
+		$.post("/home/review", data, function(serverMessage)
+		{
+			if(serverMessage == "success")
+			{
+				location.reload();
+			}
+			
+			else
+			{
+				console.log(serverMessage);
+				window.alert("Something went wrong... Please try again later.");
+			}
+		});
+	});
+	
 	$("#deleteReviewButton").click(function(e)
 	{
 		e.preventDefault();
@@ -164,7 +195,7 @@ $(function()
 			else
 			{
 				console.log(serverMessage);
-				window.alert("Something went wrong.... Please try again later.");
+				window.alert("Something went wrong... Please try again later.");
 			}
 		});
 	});

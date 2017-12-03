@@ -20,7 +20,7 @@ $(function()
 			else
 			{
 				console.log(serverMessage);
-				window.alert("Your request could not be proceeded at this momement");
+				window.alert("Your request could not be proceeded at this moment.");
 			}
 		});
 	});
@@ -51,14 +51,14 @@ $(function()
 			
 			else if(serverMessage == "payed")
 			{
-				window.alert("You have purchased all items in your cart");
+				window.alert("You have purchased all items in your cart.");
 				location.reload();
 			}
 			
 			else
 			{
 				console.log(serverMessage);
-				window.alert("could not proceed your request");
+				window.alert("Could not proceed your request.");
 			}
 		});
 	});

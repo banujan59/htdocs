@@ -184,7 +184,7 @@
 				<br/><br/><br/>
 				<div class="col-md-5">
 					<header>
-						<h1>Review this item</h1>
+						<h1>Review This Item</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
@@ -247,7 +247,7 @@
 				<br/><br/><br/>
 				<div class="col-md-5">
 					<header>
-						<h1>Your review:</h1>
+						<h1>Your Review:</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
@@ -303,6 +303,7 @@
 						</tbody>
 					</table>
 						<br/>
+					<button class="btn btn-danger" itemID="<?php echo $data["items"][0]->ID;?>" id="modifyReviewButton">Modify My Review</button>
 					<button class="btn btn-danger" itemID="<?php echo $data["items"][0]->ID;?>" id="deleteReviewButton">Delete My Review</button>
 				</div>
 			</div> <!-- End row -->
