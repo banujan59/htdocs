@@ -64,7 +64,7 @@
 											<li>Price: $<?php echo $item->PRICE;?></li>
 										</ul>
 									</div>
-									<div class="preview" style="background-image:url('<?php echo $item->imageURL;?>');"></div>
+									<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
 								</div>
 							</div> <!-- End col -->
 						</div> <!-- End row -->

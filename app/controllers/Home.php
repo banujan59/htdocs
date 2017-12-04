@@ -361,18 +361,23 @@ class Home extends Controller{
 		{
 			// get product information
 			$item = $this->model("Items");
-			$itemQuery = $item->where('ID', '=', $id)->get();
+			$itemQuery = $item->getItem($id);
 		
 			// get reviews for the item
 			$review = $this->model("Reviews");
 			$reviewQuery = $review->getAllReviews($id);
 			
 			// check if there is already a review by the current user
-			$reviewByCurrentUser = $review->where("WRITER_ID", "=", $_SESSION["userID"])->get();
+			$reviewByCurrentUser = null;
+			
+			if( isset($_SESSION["userID"]) )
+				$reviewByCurrentUser = $review->where("WRITER_ID", "=", $_SESSION["userID"])->get();
 		
 			// get status of the item for the current user
 			$order = $this->model("Orders");
-			$orderStatus = $order->getOrderStatus($id, $_SESSION["userID"]);
+			$orderStatus = null;
+			if( isset($_SESSION["userID"]))
+				$orderStatus = $order->getOrderStatus($id, $_SESSION[userID]);
 		
 			$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery, "order_status"=>$orderStatus, "reviewByCurrentUser"=>$reviewByCurrentUser]);
 		} // end else

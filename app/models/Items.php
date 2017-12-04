@@ -39,6 +39,19 @@ class Items extends Model
 		$this->imageURL = $value;
 	}
 	
+	public function getItem($itemID)
+	{
+		$select	= "SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname' FROM  items, users WHERE items.SELLER_ID = users.ID AND items.ID = $itemID";
+        $stmt = self::$_connection->prepare($select);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
+        $returnVal = [];
+        while($rec = $stmt->fetch()){
+            $returnVal[] = $rec;
+        }
+        return $returnVal;
+	}
+	
 	public function getItemsInCart($userID)
 	{
 		$select	= "SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname' FROM  items, users WHERE items.SELLER_ID = users.ID AND items.ID IN (SELECT order_details.ITEM_ID  FROM order_details, orders WHERE order_details.ORDER_ID = orders.ID AND orders.STATUS = 'CART' AND orders.USER_ID = $userID)";
