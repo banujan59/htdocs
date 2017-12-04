@@ -377,7 +377,7 @@ class Home extends Controller{
 			$order = $this->model("Orders");
 			$orderStatus = null;
 			if( isset($_SESSION["userID"]))
-				$orderStatus = $order->getOrderStatus($id, $_SESSION[userID]);
+				$orderStatus = $order->getOrderStatus($id, $_SESSION["userID"]);
 		
 			$this->view('Home/product', ["items"=>$itemQuery, "reviews"=>$reviewQuery, "order_status"=>$orderStatus, "reviewByCurrentUser"=>$reviewByCurrentUser]);
 		} // end else
