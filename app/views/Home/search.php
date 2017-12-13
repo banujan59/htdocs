@@ -61,7 +61,7 @@
 									<div class="resultDescription">
 										<ul>
 											<li>Name: <?php echo $item->NAME;?></li>
-											<li>Price: $<?php echo $item->PRICE;?></li>
+											<li>Price: <?php echo $item->PRICE;?> (For Seller)</li>
 										</ul>
 									</div>
 									<div class="preview" style="background-image:url('/resources/images/logo.png');"></div>
