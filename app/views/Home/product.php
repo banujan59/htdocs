@@ -326,7 +326,18 @@
 				<br/><br/><br/>
 				<div class="col-md-3">
 					<header>
-						<h1>Reviews</h1>
+						<h1>Reviews (<?php $total = 0.0;
+										   $posTotal = 0.0;
+										   foreach($data["reviews"] as $review)
+										   {
+												if($review->TYPE != 'Negative')
+												{
+													$posTotal = $posTotal + 1.0;
+												}
+												$total = $total + 1.0;
+										   }
+										   $posPerc = ($posTotal / $total) * 100.0;
+										   echo $posPerc;?>%)</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
