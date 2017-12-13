@@ -153,8 +153,12 @@
 							echo $data["items"][0]->DESCRIPTION;
 						?>
 						<br/>
-						<b>Price: <?php echo $data["items"][0]->PRICE;?> <?php if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b> <!--In this case, the country shown is fine cause the BUYER is from this country. But the numbers
-																															are from the SELLER'S country, therefore, once you somehow connect the exchange rate, I'll convert.-->
+						<b>Price: <?php $originalPrice = $data["items"][0]->PRICE;
+										$sellerExchangeRate = $data["items"][0]->exchange_rate;
+										$toCanadian = ($originalPrice * 1000) / ($sellerExchangeRate * 1000);
+										$buyerExchangeRate = $_SESSION['EXCHANGE_RATE'];
+										$toDisplay = $toCanadian * $buyerExchangeRate;
+										echo number_format((float)$toDisplay, 2, '.', '');?> <?php if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b>
 						<br/>
 						<b>Seller: <?php
 								foreach($data["items"] as $item)

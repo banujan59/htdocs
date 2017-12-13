@@ -41,7 +41,7 @@ class Items extends Model
 	
 	public function getItem($itemID)
 	{
-		$select	= "SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname' FROM  items, users WHERE items.SELLER_ID = users.ID AND items.ID = $itemID";
+		$select	= "SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname', countries.EXCHANGE_RATE AS 'exchange_rate' FROM items, users, countries WHERE countries.ID = users.COUNTRY_ID AND items.SELLER_ID = users.ID AND items.ID = $itemID";
         $stmt = self::$_connection->prepare($select);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, $this->_className);
@@ -78,7 +78,7 @@ class Items extends Model
         return $returnVal;
 	}
 	
-	public function getItemCurrency($userID)//Unsure.
+	/*public function getItemCurrency($userID)//Unsure.
 	{
 		$select = "SELECT items.*, users.FNAME AS 'seller_fname', users.LNAME AS 'seller_lname', countries.COUNTRY_NAME AS 'country_name', countries.EXCHANGE_RATE AS 'exchange_rate' WHERE items.SELLER_ID = users.ID AND countries.ID = users.COUNTRY_ID";//To be changed.
 		$stmt = self::$_connection->prepare($select);
@@ -89,7 +89,7 @@ class Items extends Model
             $returnVal[] = $rec;
         }
         return $returnVal;
-	}
+	}*/
 }
 
 ?>
