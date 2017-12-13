@@ -59,6 +59,7 @@
 				?>
 					<p class="plusplusText">
 						Total : <?php $total = 0.0;
+									  $shipping;
 									  foreach($data["items"] as $item)
 									  {
 										  $originalPrice = $item->PRICE;
@@ -68,6 +69,14 @@
 										  $toDisplay = $toCanadian * $buyerExchangeRate;
 										  $total = $total + $toDisplay;
 									  }
+									  /*$radioButtons = documents.getElementsByName("shipping");
+									  if ($radioButtons[0].checked)
+										  $shipping = $total * 0.05;
+									  else if ($radioButtons[1].checked)
+										  $shipping = $total * 0.15;
+									  else if ($radioButtons[2].checked)
+										  $shipping = $total * 0.25;
+									  $total = $total + $shipping;*/
 									  echo number_format((float)$total, 2, '.', '');
 									  echo ' ';
 									  if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency
@@ -124,7 +133,18 @@
 					?>
 				</div>
 			</div> <!-- End row -->
-			
+			<div class="row">
+				<div class="col-md-3">
+					<header>
+						<h1>Shipping Choice</h1>
+					</header>
+				</div>
+			</div> <!-- End row -->
+			<form name="shipping">
+			  <input type="radio" name="shipping" value="standard" checked> Standard Shipping [+5%]<br>
+			  <input type="radio" name="shipping" value="premium"> Premium Shipping [+15%]<br>
+			  <input type="radio" name="shipping" value="yotta"> Yotta Shipping [+25%]
+			</form>
 
 			<hr/>
 
