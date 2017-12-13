@@ -57,6 +57,16 @@ class Reviews extends Model
         $stmt = self::$_connection->prepare($delete);
         $stmt->execute();
 	}
+	
+	public function updateUserReview($rating, $content, $type, $writerID, $itemID)
+	{
+		/*
+		UPDATE reviews SET reviews.RATING = $this->RATING, reviews.CONTENT = $this->CONTENT, reviews.TYPE = $this->TYPE WHERE reviews.WRITER_ID = $this->WRITER_ID AND reviews.ITEM_ID = $this->ITEM_ID;
+		*/ 
+		$update = 'UPDATE reviews SET RATING = ' . $rating . ', CONTENT = \'' . $content . '\', TYPE = \'' . $type . '\' WHERE WRITER_ID = ' . $writerID . ' AND ITEM_ID = ' . $itemID;
+		$stmt = self::$_connection->prepare($update);
+        $stmt->execute();
+	}
 }
 
 ?>
