@@ -89,7 +89,10 @@
 										<option>Select Your Country</option>
 										<?php
 											foreach ($data['countries'] as $country)
+											if ($_SESSION['COUNTRY_CODE'] != $country->COUNTRY_CODE)
 												echo "<option value='$country->ID'>".$country->COUNTRY_NAME."</option>";
+											else
+												echo "<option value='$country->ID' selected='selected'>".$country->COUNTRY_NAME."</option>";
 										?>
 									</select>
 								</div>

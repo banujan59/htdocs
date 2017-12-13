@@ -155,7 +155,7 @@ class Home extends Controller{
 		if( isset($_POST["email"]) && isset($_POST["uname"]) && isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["countryID"]) && isset($_POST["password"]) )
 		{
 			$user = Controller::model('Users');
-			$users = $user->where('id','=',$_SESSION["id"])->get();
+			$users = $user->where('id','=',$_SESSION["userID"])->get();
 			
 			if( isset($users[0]) )
 			{
@@ -168,7 +168,19 @@ class Home extends Controller{
 					$user->setLname( $_POST["lname"] );
 					$user->setCountryID( $_POST["countryID"] );
 					$user->update();
-					
+					$_SESSION['email'] = $_POST["email"];
+					$_SESSION["uname"] = $_POST["uname"];
+					$_SESSION["fname"] = $_POST["fname"];
+					$_SESSION["lname"] = $_POST["lname"];
+					$country = Controller::model('Countries');
+					$countryQuery = $country->where('ID', '=', $_POST["countryID"])->get();
+				
+					if(isset($countryQuery[0]))
+					{
+						$_SESSION["COUNTRY_NAME"] = $countryQuery[0]->COUNTRY_NAME;
+						$_SESSION["EXCHANGE_RATE"] = $countryQuery[0]->EXCHANGE_RATE;
+						$_SESSION["COUNTRY_CODE"] = $countryQuery[0]->COUNTRY_CODE;
+					}
 					echo "success";
 				}
 				
@@ -178,10 +190,11 @@ class Home extends Controller{
 				}
 			}
 		}
-		
+		else{
 		$aClient = $this->model('Countries');
 		$myCountries = $aClient->get();
 		$this->view('Home/modify', ['countries'=>$myCountries]);
+		}
 	}
 	
 	public function product($id)
