@@ -58,12 +58,14 @@
 					{
 				?>
 					<p class="plusplusText">
-						Total : $<?php $total = 0.0;
+						Total : <?php $total = 0.0;
 									  foreach($data["items"] as $item)
 									  {
 										  $total = $total + $item->PRICE;
 									  }
-									  echo $total?>
+									  echo $total;
+									  echo ' ';
+									  if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency
 					</p>
 					<button id="clearCartButton" type="button" class="cartOptionButton btn btn-danger">Clear Cart</button>
 					<button id="paymentButton" type="button" class="cartOptionButton btn btn-success">Proceed to payment</button>
