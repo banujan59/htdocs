@@ -150,12 +150,12 @@ $(function()
 		var data =
 		{
 			//I figure that maybe 'delete' should be changed.
-			"operation" : "delete",
+			"operation" : "update",
 			"ITEM_ID" : itemID
 		};
 		
 		// request
-		$.post("/home/review", data, function(serverMessage)
+		/*$.post("/home/review", data, function(serverMessage)
 		{
 			if(serverMessage == "success")
 			{
@@ -167,7 +167,7 @@ $(function()
 				console.log(serverMessage);
 				window.alert("Something went wrong... Please try again later.");
 			}
-		});
+		});*/
 	});
 	
 	$("#deleteReviewButton").click(function(e)

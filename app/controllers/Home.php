@@ -430,6 +430,19 @@ class Home extends Controller{
 			$review->deleteReviewFromUser($_SESSION["userID"], $_POST["ITEM_ID"]);
 			echo "success";
 		}
+		
+		// for updating a review
+		if( isset($_POST["operation"]) && $_POST["operation"] == "update" && isset($_POST["ITEM_ID"]) && isset($_POST["RATING"]) && isset($_POST["CONTENT"]) && isset($_POST["TYPE"]))
+		{
+			// update review
+			$review->setWriterID( $_SESSION["userID"] );
+			$review->setItemID( $_POST["ITEM_ID"] );
+			$review->setRating( $_POST["RATING"] );
+			$review->setContent( $_POST["CONTENT"] );
+			$review->setType( $_POST["TYPE"] );
+			$review->update();
+			echo "success";
+		}
 	}
 	
 	public function logout()
