@@ -440,7 +440,7 @@ class Home extends Controller{
 			$review->setRating( $_POST["RATING"] );
 			$review->setContent( $_POST["CONTENT"] );
 			$review->setType( $_POST["TYPE"] );
-			$review->update();
+			$review->updateUserReview( $_POST["RATING"], $_POST["CONTENT"], $_POST["TYPE"], $_SESSION["userID"], $_POST["ITEM_ID"] );
 			echo "success";
 		}
 	}

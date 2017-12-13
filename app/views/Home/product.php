@@ -262,16 +262,16 @@
 				</div>
 			</div> <!-- End row -->
 			<div class="row">
-				<div class="col-md-12">
+				<div id="reviewContainer" class="col-md-12">
 					<table>
 						<tbody>
 							<tr>
 								<th>Review Content: </th>
-								<td><?php echo $data["reviewByCurrentUser"][0]->CONTENT; ?></td>
+								<td class="userReviewContent"><?php echo $data["reviewByCurrentUser"][0]->CONTENT; ?></td>
 							</tr>
 							<tr>
 								<th>Review Rating: </th>
-								<td><?php 
+								<td class="userReviewRating" review="<?php echo $data["reviewByCurrentUser"][0]->RATING;?>"><?php 
 										switch($data["reviewByCurrentUser"][0]->RATING)
 												{
 													case 1:
@@ -308,7 +308,7 @@
 							</tr>
 							<tr>
 								<th>Review Type: </th>
-								<td><?php echo $data["reviewByCurrentUser"][0]->TYPE; ?></td>
+								<td class="userReviewType"><?php echo $data["reviewByCurrentUser"][0]->TYPE; ?></td>
 							</tr>
 						</tbody>
 					</table>
