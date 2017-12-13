@@ -61,9 +61,14 @@
 						Total : <?php $total = 0.0;
 									  foreach($data["items"] as $item)
 									  {
-										  $total = $total + $item->PRICE;
+										  $originalPrice = $item->PRICE;
+										  $sellerExchangeRate = $item->exchange_rate;
+										  $toCanadian = ($originalPrice * 1000) / ($sellerExchangeRate * 1000);
+										  $buyerExchangeRate = $_SESSION['EXCHANGE_RATE'];
+										  $toDisplay = $toCanadian * $buyerExchangeRate;
+										  $total = $total + $toDisplay;
 									  }
-									  echo $total;
+									  echo number_format((float)$total, 2, '.', '');
 									  echo ' ';
 									  if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency
 					</p>
@@ -98,7 +103,12 @@
 									<tr>
 										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->NAME;?> </a></td>
 										<td><?php echo $item->seller_fname . ' ' . $item->seller_lname;?></td>
-										<td><?php echo $item->PRICE;?></td>
+										<td><?php $originalPrice = $item->PRICE;
+												  $sellerExchangeRate = $item->exchange_rate;
+												  $toCanadian = ($originalPrice * 1000) / ($sellerExchangeRate * 1000);
+												  $buyerExchangeRate = $_SESSION['EXCHANGE_RATE'];
+												  $toDisplay = $toCanadian * $buyerExchangeRate;
+												  echo number_format((float)$toDisplay, 2, '.', '');?></td>
 										<td>
 											<button itemID="<?php echo $item->ID;?>" type="button" class="removeFromCartButton btn btn-danger">Remove From Cart</button>
 										</td>
