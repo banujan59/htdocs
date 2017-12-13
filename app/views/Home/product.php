@@ -153,7 +153,7 @@
 							echo $data["items"][0]->DESCRIPTION;
 						?>
 						<br/>
-						<b>Price: <?php echo $data["items"][0]->PRICE;?> <?php if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?></b> <!--In this case, the country shown is fine cause the BUYER is from this country. But the numbers
+						<b>Price: <?php echo $data["items"][0]->PRICE;?> <?php if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b> <!--In this case, the country shown is fine cause the BUYER is from this country. But the numbers
 																															are from the SELLER'S country, therefore, once you somehow connect the exchange rate, I'll convert.-->
 						<br/>
 						<b>Seller: <?php
@@ -340,7 +340,7 @@
 										   $posPerc = ($posTotal / $total) * 100.0;
 										   echo $posPerc;}
 										   else
-										   {echo '--';}?>%)</h1>
+										   {echo '--';}?>% Positive)</h1>
 					</header>
 				</div>
 			</div> <!-- End row -->
