@@ -84,17 +84,17 @@
 					<form name="shipping" class="plusplusText">
 					  <input type="radio" name="shipping" value="standard" checked> Standard Shipping [+5%] <b>→ <?php $standard = 0.0;
 																														$standard = $total + ($total * 0.05);
-																														echo $standard;
+																														echo number_format((float)$standard, 2, '.', '');
 																														echo ' ';
 																														if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b><br>
 					  <input type="radio" name="shipping" value="premium"> Premium Shipping [+15%] <b>→ <?php $standard = 0.0;
 																														$standard = $total + ($total * 0.15);
-																														echo $standard;
+																														echo number_format((float)$standard, 2, '.', '');
 																														echo ' ';
 																														if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b><br>
 					  <input type="radio" name="shipping" value="yotta"> Yotta Shipping [+25%] <b>→ <?php $standard = 0.0;
 																														$standard = $total + ($total * 0.25);
-																														echo $standard;
+																														echo number_format((float)$standard, 2, '.', '');
 																														echo ' ';
 																														if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b>
 					</form>
