@@ -52,9 +52,9 @@
 						<!--Please make the SECOND control label of each group left-aligned (if that would make it look better).-->
 						<form method="post" class="form-horizontal">
 						<div class="form-group">
-								<label class="control-label col-sm-3" for="email">Old Password:</label>
+								<label class="control-label col-sm-3" for="email">Current Password:</label>
 								<div class="inputContainer col-sm-8">
-									<input type="password" name="oldPwd" class="form-control" placeholder="Enter Old Password">
+									<input type="password" name="oldPwd" class="form-control" placeholder="Enter Current Password">
 								</div>
 								<span id="oldPasswordErrorMessages" class="control-label col-sm-2 errorMessage"></span>
 							</div>

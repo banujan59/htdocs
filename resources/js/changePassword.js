@@ -49,7 +49,7 @@ $(function()
 			{
 				if(serverOutput == "current pwd invalid") // if current pwd entered is invalid
 				{
-					$(".serverOutput").text("The old password entered is invalid");
+					$(".serverOutput").text("The current password entered is invalid");
 					$(".serverOutput").css("color", "red");
 				}
 				
