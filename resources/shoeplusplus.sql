@@ -312,13 +312,13 @@ CREATE TABLE `items` (
 -- Table structure for table `messages`
 --
 
-CREATE TABLE `messages` (
+/*CREATE TABLE `messages` (
   `FROM_ID` int(4) NOT NULL,
   `TO_ID` int(4) NOT NULL,
   `SUBJECT` varchar(25) NOT NULL,
   `CONTENT` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -412,10 +412,10 @@ ALTER TABLE `items`
 --
 -- Indexes for table `messages`
 --
-ALTER TABLE `messages`
+/*ALTER TABLE `messages`
   ADD PRIMARY KEY (`FROM_ID`,`TO_ID`),
   ADD KEY `MESSAGES_TO_ID_FK` (`TO_ID`);
-
+*/
 --
 -- Indexes for table `orders`
 --
@@ -483,10 +483,10 @@ ALTER TABLE `items`
 --
 -- Constraints for table `messages`
 --
-ALTER TABLE `messages`
+/*ALTER TABLE `messages`
   ADD CONSTRAINT `MESSAGES_FROM_ID_FK` FOREIGN KEY (`FROM_ID`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `MESSAGES_TO_ID_FK` FOREIGN KEY (`TO_ID`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+*/
 --
 -- Constraints for table `orders`
 --
