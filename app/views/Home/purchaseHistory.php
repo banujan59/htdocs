@@ -79,7 +79,12 @@
 									<tr>
 										<td><a href="/home/product/<?php echo $item->ID;?>"> <?php echo $item->NAME;?> </a></td>
 										<td><?php echo $item->seller_fname . ' ' . $item->seller_lname;?></td>
-										<td><?php echo $item->PRICE;?></td>
+										<td><?php $originalPrice = $item->PRICE;
+												  $sellerExchangeRate = $item->exchange_rate;
+												  $toCanadian = ($originalPrice * 1000) / ($sellerExchangeRate * 1000);
+												  $buyerExchangeRate = $_SESSION['EXCHANGE_RATE'];
+												  $toDisplay = $toCanadian * $buyerExchangeRate;
+												  echo number_format((float)$toDisplay, 2, '.', '');?></td>
 									</tr>
 									<?php
 								}

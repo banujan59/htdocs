@@ -58,8 +58,8 @@
 					{
 				?>
 					<p class="plusplusText">
-						Total : <?php $total = 0.0;
-									  $shipping;
+						Total Without Shipping: <?php $total = 0.0;
+									  //$shipping;
 									  foreach($data["items"] as $item)
 									  {
 										  $originalPrice = $item->PRICE;
@@ -81,6 +81,24 @@
 									  echo ' ';
 									  if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency
 					</p>
+					<form name="shipping" class="plusplusText">
+					  <input type="radio" name="shipping" value="standard" checked> Standard Shipping [+5%] <b>→ <?php $standard = 0.0;
+																														$standard = $total + ($total * 0.05);
+																														echo $standard;
+																														echo ' ';
+																														if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b><br>
+					  <input type="radio" name="shipping" value="premium"> Premium Shipping [+15%] <b>→ <?php $standard = 0.0;
+																														$standard = $total + ($total * 0.15);
+																														echo $standard;
+																														echo ' ';
+																														if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b><br>
+					  <input type="radio" name="shipping" value="yotta"> Yotta Shipping [+25%] <b>→ <?php $standard = 0.0;
+																														$standard = $total + ($total * 0.25);
+																														echo $standard;
+																														echo ' ';
+																														if(isset($_SESSION['COUNTRY_NAME']))echo $_SESSION['COUNTRY_NAME'];?> Currency</b>
+					</form>
+					<br/>
 					<button id="clearCartButton" type="button" class="cartOptionButton btn btn-danger">Clear Cart</button>
 					<button id="paymentButton" type="button" class="cartOptionButton btn btn-success">Proceed to payment</button>
 				</div>
@@ -133,18 +151,6 @@
 					?>
 				</div>
 			</div> <!-- End row -->
-			<div class="row">
-				<div class="col-md-3">
-					<header>
-						<h1>Shipping Choice</h1>
-					</header>
-				</div>
-			</div> <!-- End row -->
-			<form name="shipping">
-			  <input type="radio" name="shipping" value="standard" checked> Standard Shipping [+5%]<br>
-			  <input type="radio" name="shipping" value="premium"> Premium Shipping [+15%]<br>
-			  <input type="radio" name="shipping" value="yotta"> Yotta Shipping [+25%]
-			</form>
 
 			<hr/>
 
