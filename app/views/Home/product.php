@@ -342,7 +342,7 @@
 												$total = $total + 1.0;
 										   }
 										   $posPerc = ($posTotal / $total) * 100.0;
-										   echo $posPerc;}
+										   echo number_format((float)$posPerc, 2, '.', '');}
 										   else
 										   {echo '--';}?>% Positive)</h1>
 					</header>
