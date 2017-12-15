@@ -299,13 +299,13 @@ CREATE TABLE `items` (
   `IMAGEURL` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `items` (`ID`, `SELLER_ID`, `NAME`, `DESCRIPTION`, `PRICE`, `IMAGEURL`) VALUES
+/*INSERT INTO `items` (`ID`, `SELLER_ID`, `NAME`, `DESCRIPTION`, `PRICE`, `IMAGEURL`) VALUES
 (1, 13, 'Puma', 'PUMA SE, branded as PUMA, is a German multinational company that designs and manufactures athletic and casual footwear, apparel and accessories, headquartered in Herzogenaurach, Bavaria. PUMA is the third largest sportswear manufacturer in the world.. The company was founded in 1948 by Rudolf Dassler.', 49.99, null),
 (2, 12, 'Adidas', 'Adidas was registered on 18 August 1949 by Adolf Dassler, following a family feud at the Gebrüder Dassler Schuhfabrik company between him and his older brother Rudolf.[1] Rudolf had earlier established Puma, which quickly became the business rival of Adidas, and is also headquartered in Herzogenaurach. The companys clothing and shoe designs typically feature three parallel bars, and the same motif is incorporated into Adidass current official logo.[6][7] The brand name is uncapitalized and is stylized with a lower case "a".', 59.99, null),
 (3, 6, 'Nike', 'The company was founded on January 25, 1964, as Blue Ribbon Sports, by Bill Bowerman and Phil Knight, and officially became Nike, Inc. on May 30, 1971. The company takes its name from Nike, the Greek goddess of victory. Nike markets its products under its own brand, as well as Nike Golf, Nike Pro, Nike+, Air Jordan, Nike Blazers, Air Force 1, Nike Dunk, Air Max, Foamposite, Nike Skateboarding, and subsidiaries including Brand Jordan, Hurley International and Converse. Nike also owned Bauer Hockey (later renamed Nike Bauer) between 1995 and 2008, and previously owned Cole Haan and Umbro.[8] In addition to manufacturing sportswear and equipment, the company operates retail stores under the Niketown name. Nike sponsors many high-profile athletes and sports teams around the world, with the highly recognized trademarks of "Just Do It" and the Swoosh logo.', 69.99, null),
 (4, 10, 'Michael Kors', 'Michael Kors Holdings Limited is an American luxury fashion company that was established in 1981 by designer Michael Kors.[2] The company is known for apparel, footwear, watches, handbags and other accessories. As of 2015, Michael Kors Holdings has more than 550 stores and over 1500 in-store boutiques in various countries.', 79.99, null),
 (5, 1, 'Crocs', 'Crocs, Inc. is a shoe manufacturer founded by Scott Seamans, Lyndon "Duke" Hanson, and George Boedecker, Jr. — to produce and distribute a foam clog[3] design acquired from a company called Foam Creations. The shoe was originally developed as a boating shoe. The first model produced by Crocs, the Beach, was unveiled in 2002 at the Fort Lauderdale Boat Show in Florida, and sold out the 200 pairs produced at that time.[4] It has since sold 300 million pairs of shoes.', 89.99, null);
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -375,7 +375,7 @@ CREATE TABLE `users` (
   `COUNTRY_ID` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `users` (`ID`, `EMAIL`, `PASSWORD_HASH`, `UNAME`, `FNAME`, `LNAME, `COUNTRY_ID`) VALUES
+/*INSERT INTO `users` (`ID`, `EMAIL`, `PASSWORD_HASH`, `UNAME`, `FNAME`, `LNAME, `COUNTRY_ID`) VALUES
 (1, 'yellowopera49@gmail.com', '$2y$10$dffCMEPL1K92Ftx2aXUcROVJkHlMZNjaOelsrYEdXQxvmqGWAxHkO', 'rubystretch', 'Jeremya', 'Deneault', 38),
 (2, 'atputhawhatnot@gmail.com', '$2y$10$dffCMEPL1K92Ftx2aXUcROVJkHlMZNjaOelsrYEdXQxvmqGWAxHkO', 'banuyan', 'Banujan', 'Atputhrajah', 203),
 (3, 'sirsweatsalot@gmail.com', '$2y$10$dffCMEPL1K92Ftx2aXUcROVJkHlMZNjaOelsrYEdXQxvmqGWAxHkO', 'gobbs', 'Austin', 'Gobby', 230),
@@ -391,7 +391,7 @@ INSERT INTO `users` (`ID`, `EMAIL`, `PASSWORD_HASH`, `UNAME`, `FNAME`, `LNAME, `
 (13, 'pumaproducts@gmail.com', '$2y$10$dffCMEPL1K92Ftx2aXUcROVJkHlMZNjaOelsrYEdXQxvmqGWAxHkO', 'myaccentthough', 'Andrei', 'Alaev', 144),
 (14, 'thatsmyforte@gmail.com', '$2y$10$dffCMEPL1K92Ftx2aXUcROVJkHlMZNjaOelsrYEdXQxvmqGWAxHkO', 'json', 'Jason', 'Forte', 72),
 (15, 'imhereyouknow@gmail.com', '$2y$10$dffCMEPL1K92Ftx2aXUcROVJkHlMZNjaOelsrYEdXQxvmqGWAxHkO', 'glasses', 'Alexander', 'Marks', 158);
-
+*/
 --
 -- Indexes for dumped tables
 --
